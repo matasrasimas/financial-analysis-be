@@ -5,7 +5,7 @@ package org.example.generated.jooq.tables.records;
 
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.example.generated.jooq.tables.Transactions;
@@ -36,59 +36,73 @@ public class TransactionsRecord extends UpdatableRecordImpl<TransactionsRecord> 
     }
 
     /**
+     * Setter for <code>transactions.org_unit_id</code>.
+     */
+    public void setOrgUnitId(UUID value) {
+        set(1, value);
+    }
+
+    /**
+     * Getter for <code>transactions.org_unit_id</code>.
+     */
+    public UUID getOrgUnitId() {
+        return (UUID) get(1);
+    }
+
+    /**
      * Setter for <code>transactions.amount</code>.
      */
     public void setAmount(BigDecimal value) {
-        set(1, value);
+        set(2, value);
     }
 
     /**
      * Getter for <code>transactions.amount</code>.
      */
     public BigDecimal getAmount() {
-        return (BigDecimal) get(1);
+        return (BigDecimal) get(2);
     }
 
     /**
      * Setter for <code>transactions.title</code>.
      */
     public void setTitle(String value) {
-        set(2, value);
+        set(3, value);
     }
 
     /**
      * Getter for <code>transactions.title</code>.
      */
     public String getTitle() {
-        return (String) get(2);
+        return (String) get(3);
     }
 
     /**
      * Setter for <code>transactions.description</code>.
      */
     public void setDescription(String value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>transactions.description</code>.
      */
     public String getDescription() {
-        return (String) get(3);
+        return (String) get(4);
     }
 
     /**
-     * Setter for <code>transactions.createdat</code>.
+     * Setter for <code>transactions.created_at</code>.
      */
-    public void setCreatedat(LocalDateTime value) {
-        set(4, value);
+    public void setCreatedAt(LocalDate value) {
+        set(5, value);
     }
 
     /**
-     * Getter for <code>transactions.createdat</code>.
+     * Getter for <code>transactions.created_at</code>.
      */
-    public LocalDateTime getCreatedat() {
-        return (LocalDateTime) get(4);
+    public LocalDate getCreatedAt() {
+        return (LocalDate) get(5);
     }
 
     // -------------------------------------------------------------------------
@@ -114,14 +128,15 @@ public class TransactionsRecord extends UpdatableRecordImpl<TransactionsRecord> 
     /**
      * Create a detached, initialised TransactionsRecord
      */
-    public TransactionsRecord(UUID id, BigDecimal amount, String title, String description, LocalDateTime createdat) {
+    public TransactionsRecord(UUID id, UUID orgUnitId, BigDecimal amount, String title, String description, LocalDate createdAt) {
         super(Transactions.TRANSACTIONS);
 
         setId(id);
+        setOrgUnitId(orgUnitId);
         setAmount(amount);
         setTitle(title);
         setDescription(description);
-        setCreatedat(createdat);
+        setCreatedAt(createdAt);
         resetChangedOnNotNull();
     }
 }

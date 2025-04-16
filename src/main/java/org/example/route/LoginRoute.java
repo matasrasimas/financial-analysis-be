@@ -4,6 +4,7 @@ import io.javalin.http.Context;
 import org.example.converter.UserLoginR2BConverter;
 import org.example.factory.AuthenticationUseCaseFactory;
 import org.example.model.boundary.BoundaryUserLoginDTO;
+import org.example.model.rest.RestLoginMetadata;
 import org.example.model.rest.RestUserLoginDTO;
 
 public class LoginRoute {
@@ -21,8 +22,12 @@ public class LoginRoute {
         BoundaryUserLoginDTO boundaryUserLoginDTO = userLoginR2BConverter.process(reqBody).orElseThrow();
 
         authUCFactory.buildLoginUseCase().execute(boundaryUserLoginDTO).ifPresentOrElse(
-                boundaryAccessToken -> context.status(200).json(boundaryAccessToken),
-                () -> context.status(420).json("Incorrect email or password")
+                loginMetadata -> context.status(200).json(loginMetadata),
+                () -> context.status(420).json(new Message("Neteisingas el. paštas arba slaptažodis"))
         );
+    }
+
+    private record Message(String message) {
+
     }
 }

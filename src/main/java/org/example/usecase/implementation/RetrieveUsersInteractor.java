@@ -1,6 +1,5 @@
 package org.example.usecase.implementation;
 
-import io.reactivex.rxjava3.core.Single;
 import org.example.converter.UserDTOD2BConverter;
 import org.example.gateway.UserGateway;
 import org.example.model.boundary.BoundaryUserDTO;
@@ -19,7 +18,7 @@ public class RetrieveUsersInteractor implements RetrieveUsersUseCase {
     }
 
     @Override
-    public Single<List<BoundaryUserDTO>> execute() {
-        return Single.fromCallable(() -> userDTOD2BConverter.process(userGateway.retrieve()));
+    public List<BoundaryUserDTO> execute() {
+        return userDTOD2BConverter.process(userGateway.retrieve());
     }
 }

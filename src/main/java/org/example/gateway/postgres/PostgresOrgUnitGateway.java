@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import static org.example.generated.jooq.Tables.ORGANIZATIONS;
 import static org.example.generated.jooq.Tables.ORG_UNITS;
 
 public class PostgresOrgUnitGateway implements OrgUnitGateway {
@@ -24,12 +25,28 @@ public class PostgresOrgUnitGateway implements OrgUnitGateway {
                 .fetch(this::buildOrgUnit);
     }
 
+    @Override
+    public List<OrgUnit> retrieveByOrgId(UUID orgId) {
+        return dslContext.selectFrom(ORG_UNITS)
+                .where(ORG_UNITS.ORGANIZATION_ID.eq(orgId))
+                .fetch(this::buildOrgUnit);
+    }
 
     @Override
     public Optional<OrgUnit> retrieveById(UUID id) {
         return dslContext.selectFrom(ORG_UNITS)
                 .where(ORG_UNITS.ID.eq(id))
                 .fetchOptional(this::buildOrgUnit);
+    }
+
+    @Override
+    public List<String> retrieveOrgUnitIdsByUserId(UUID userId) {
+        return dslContext.select(ORG_UNITS.ID)
+                .from(ORG_UNITS)
+                .innerJoin(ORGANIZATIONS)
+                .on(ORG_UNITS.ORGANIZATION_ID.eq(ORGANIZATIONS.ID))
+                .where(ORGANIZATIONS.USER_ID.eq(userId))
+                .fetch(record -> record.value1().toString());
     }
 
     @Override

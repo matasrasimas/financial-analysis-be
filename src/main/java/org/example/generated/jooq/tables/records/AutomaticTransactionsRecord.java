@@ -37,87 +37,101 @@ public class AutomaticTransactionsRecord extends UpdatableRecordImpl<AutomaticTr
     }
 
     /**
+     * Setter for <code>automatic_transactions.org_unit_id</code>.
+     */
+    public void setOrgUnitId(UUID value) {
+        set(1, value);
+    }
+
+    /**
+     * Getter for <code>automatic_transactions.org_unit_id</code>.
+     */
+    public UUID getOrgUnitId() {
+        return (UUID) get(1);
+    }
+
+    /**
      * Setter for <code>automatic_transactions.amount</code>.
      */
     public void setAmount(BigDecimal value) {
-        set(1, value);
+        set(2, value);
     }
 
     /**
      * Getter for <code>automatic_transactions.amount</code>.
      */
     public BigDecimal getAmount() {
-        return (BigDecimal) get(1);
+        return (BigDecimal) get(2);
     }
 
     /**
      * Setter for <code>automatic_transactions.title</code>.
      */
     public void setTitle(String value) {
-        set(2, value);
+        set(3, value);
     }
 
     /**
      * Getter for <code>automatic_transactions.title</code>.
      */
     public String getTitle() {
-        return (String) get(2);
+        return (String) get(3);
     }
 
     /**
      * Setter for <code>automatic_transactions.description</code>.
      */
     public void setDescription(String value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>automatic_transactions.description</code>.
      */
     public String getDescription() {
-        return (String) get(3);
+        return (String) get(4);
     }
 
     /**
      * Setter for <code>automatic_transactions.latest_transaction_date</code>.
      */
     public void setLatestTransactionDate(LocalDateTime value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>automatic_transactions.latest_transaction_date</code>.
      */
     public LocalDateTime getLatestTransactionDate() {
-        return (LocalDateTime) get(4);
+        return (LocalDateTime) get(5);
     }
 
     /**
-     * Setter for <code>automatic_transactions.duration_minutes</code>.
+     * Setter for <code>automatic_transactions.duration</code>.
      */
-    public void setDurationMinutes(Integer value) {
-        set(5, value);
+    public void setDuration(Integer value) {
+        set(6, value);
     }
 
     /**
-     * Getter for <code>automatic_transactions.duration_minutes</code>.
+     * Getter for <code>automatic_transactions.duration</code>.
      */
-    public Integer getDurationMinutes() {
-        return (Integer) get(5);
+    public Integer getDuration() {
+        return (Integer) get(6);
     }
 
     /**
      * Setter for <code>automatic_transactions.duration_unit</code>.
      */
     public void setDurationUnit(DurationEnum value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
      * Getter for <code>automatic_transactions.duration_unit</code>.
      */
     public DurationEnum getDurationUnit() {
-        return (DurationEnum) get(6);
+        return (DurationEnum) get(7);
     }
 
     // -------------------------------------------------------------------------
@@ -143,15 +157,16 @@ public class AutomaticTransactionsRecord extends UpdatableRecordImpl<AutomaticTr
     /**
      * Create a detached, initialised AutomaticTransactionsRecord
      */
-    public AutomaticTransactionsRecord(UUID id, BigDecimal amount, String title, String description, LocalDateTime latestTransactionDate, Integer durationMinutes, DurationEnum durationUnit) {
+    public AutomaticTransactionsRecord(UUID id, UUID orgUnitId, BigDecimal amount, String title, String description, LocalDateTime latestTransactionDate, Integer duration, DurationEnum durationUnit) {
         super(AutomaticTransactions.AUTOMATIC_TRANSACTIONS);
 
         setId(id);
+        setOrgUnitId(orgUnitId);
         setAmount(amount);
         setTitle(title);
         setDescription(description);
         setLatestTransactionDate(latestTransactionDate);
-        setDurationMinutes(durationMinutes);
+        setDuration(duration);
         setDurationUnit(durationUnit);
         resetChangedOnNotNull();
     }

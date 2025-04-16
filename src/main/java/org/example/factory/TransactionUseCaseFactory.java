@@ -1,11 +1,11 @@
 package org.example.factory;
 
-import org.example.usecase.DeleteTransactionUseCase;
-import org.example.usecase.RetrieveTransactionsUseCase;
-import org.example.usecase.UpsertTransactionUseCase;
+import org.example.usecase.*;
 
 public interface TransactionUseCaseFactory {
     RetrieveTransactionsUseCase createRetrieveTransactionsUseCase();
-    UpsertTransactionUseCase createUpsertTransactionUseCase();
+    RetrieveOrgUnitTransactionsUseCase createRetrieveOrgUnitTransactionsUseCase();
+    UpsertTransactionsUseCase createUpsertTransactionsUseCase();
     DeleteTransactionUseCase createDeleteTransactionUseCase();
+    GenerateTransactionsFromFileUseCase createGenerateTransactionsFromFileUseCase();
 }

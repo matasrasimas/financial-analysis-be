@@ -11,7 +11,9 @@ import java.util.UUID;
 
 import org.example.generated.jooq.DefaultSchema;
 import org.example.generated.jooq.Keys;
+import org.example.generated.jooq.tables.AutomaticTransactions.AutomaticTransactionsPath;
 import org.example.generated.jooq.tables.Organizations.OrganizationsPath;
+import org.example.generated.jooq.tables.Transactions.TransactionsPath;
 import org.example.generated.jooq.tables.records.OrgUnitsRecord;
 import org.jooq.Condition;
 import org.jooq.Field;
@@ -167,6 +169,32 @@ public class OrgUnits extends TableImpl<OrgUnitsRecord> {
             _organizations = new OrganizationsPath(this, Keys.ORG_UNITS__ORG_UNITS_ORGANIZATION_ID_FKEY, null);
 
         return _organizations;
+    }
+
+    private transient AutomaticTransactionsPath _automaticTransactions;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.automatic_transactions</code> table
+     */
+    public AutomaticTransactionsPath automaticTransactions() {
+        if (_automaticTransactions == null)
+            _automaticTransactions = new AutomaticTransactionsPath(this, null, Keys.AUTOMATIC_TRANSACTIONS__AUTOMATIC_TRANSACTIONS_ORG_UNIT_ID_FKEY.getInverseKey());
+
+        return _automaticTransactions;
+    }
+
+    private transient TransactionsPath _transactions;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.transactions</code> table
+     */
+    public TransactionsPath transactions() {
+        if (_transactions == null)
+            _transactions = new TransactionsPath(this, null, Keys.TRANSACTIONS__TRANSACTIONS_ORG_UNIT_ID_FKEY.getInverseKey());
+
+        return _transactions;
     }
 
     @Override

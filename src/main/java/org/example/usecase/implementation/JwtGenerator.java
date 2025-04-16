@@ -27,7 +27,7 @@ public class JwtGenerator implements TokenGenerator {
             JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
                     .subject("subject")
                     .issuer("issuer")
-                    .expirationTime(Date.from(Instant.now().plusSeconds(3600)))
+                    .expirationTime(Date.from(Instant.now().plusSeconds(86400)))
                     .claim("userId", userId)
                     .build();
 

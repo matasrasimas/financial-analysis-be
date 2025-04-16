@@ -18,4 +18,8 @@ public class RouteConstants {
     public static final String USER_ID_PATH_PARAM = "/{user-id}";
     public static final String USER_ID = "user-id";
     public static final String LOGIN_PATH = "/login";
+    public static final String AUTH_PATH = "/auth";
+    public static final String FROM = "from";
+    public static final String TO = "to";
+    public static final String FROM_FILE = "/from-file";
 }

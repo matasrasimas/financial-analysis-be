@@ -8,9 +8,11 @@ public class TransactionUpsertB2DConverter extends Converter<BoundaryTransaction
     protected TransactionUpsert convert(BoundaryTransactionUpsert input) {
         return new TransactionUpsert(
                 input.id(),
+                input.orgUnitId(),
                 input.amount(),
                 input.title(),
-                input.description()
+                input.description(),
+                input.createdAt()
         );
     }
 }

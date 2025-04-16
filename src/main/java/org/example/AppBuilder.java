@@ -56,6 +56,7 @@ public class AppBuilder {
 
     private void setApiRoutes() {
         post(LOGIN_PATH, context -> new LoginRoute(authUCFactory, new UserLoginR2BConverter()).processRequest(context));
+        get(AUTH_PATH, context -> new AuthenticateUserRoute(authUCFactory, new UserDTOB2RConverter()).processRequest(context));
         path(TRANSACTIONS_PATH, this::createTransactionsRoutes);
         path(AUTOMATIC_TRANSACTIONS_PATH, this::createAutomaticTransactionsRoutes);
         path(ORGANIZATIONS_PATH, this::createOrganizationsRoutes);
@@ -64,33 +65,56 @@ public class AppBuilder {
     }
 
     private void createTransactionsRoutes() {
+        post(FROM_FILE, new GenerateTransactionsFromFileRoute(authUCFactory, jsonSerializer, exceptionHandler, transactionUCFactory, new TransactionFromFileB2RConverter()));
         get(new RetrieveTransactionsRoute(authUCFactory, transactionUCFactory, jsonSerializer, new TransactionB2RConverter(), exceptionHandler));
-        post(new UpsertTransactionRoute(authUCFactory, jsonSerializer, exceptionHandler, transactionUCFactory, new TransactionUpsertR2BConverter()));
-        delete(TRANSACTION_ID_PATH_PARAM, new DeleteTransactionRoute(authUCFactory, jsonSerializer, exceptionHandler, transactionUCFactory));
+        post(new UpsertTransactionsRoute(authUCFactory, jsonSerializer, exceptionHandler, transactionUCFactory, new TransactionUpsertR2BConverter(), new TransactionB2RConverter()));
+        path(TRANSACTION_ID_PATH_PARAM, this::createTransactionIdRoutes);
+    }
+
+    private void createTransactionIdRoutes() {
+        delete(new DeleteTransactionRoute(authUCFactory, jsonSerializer, exceptionHandler, transactionUCFactory));
     }
 
     private void createAutomaticTransactionsRoutes() {
         get(new RetrieveAutomaticTransactionsRoute(authUCFactory, automaticTransactionUCFactory, jsonSerializer, new AutomaticTransactionB2RConverter(), exceptionHandler));
-        post(new UpsertAutomaticTransactionRoute(authUCFactory, jsonSerializer, exceptionHandler, automaticTransactionUCFactory, new AutomaticTransactionR2BConverter()));
+        post(new UpsertAutomaticTransactionRoute(authUCFactory, jsonSerializer, exceptionHandler, automaticTransactionUCFactory, new AutomaticTransactionR2BConverter(), new AutomaticTransactionB2RConverter()));
         delete(AUTOMATIC_TRANSACTION_ID_PATH_PARAM, new DeleteAutomaticTransactionRoute(authUCFactory, jsonSerializer, exceptionHandler, automaticTransactionUCFactory));
     }
 
     private void createOrganizationsRoutes() {
         get(new RetrieveOrganizationsRoute(authUCFactory, organizationUCFactory, jsonSerializer, new OrganizationB2RConverter(), exceptionHandler));
-        post(new UpsertOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationR2BConverter()));
-        delete(ORGANIZATION_ID_PATH_PARAM, new DeleteOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory));
+        post(new CreateOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationCreateR2BConverter(), new OrgUnitB2RConverter()));
+        put(new UpdateOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationR2BConverter()));
+        path(ORGANIZATION_ID_PATH_PARAM, this::createOrganizationIdRoutes);
+    }
+
+    private void createOrganizationIdRoutes() {
+        get(ORG_UNITS_PATH, new RetrieveOrganizationOrgUnitsRoute(authUCFactory, jsonSerializer, exceptionHandler, orgUnitUCFactory, new OrgUnitB2RConverter()));
+        delete(new DeleteOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory));
     }
 
     private void createOrgUnitsRoutes() {
         get(new RetrieveOrgUnitsRoute(authUCFactory, orgUnitUCFactory, jsonSerializer, new OrgUnitB2RConverter(), exceptionHandler));
         post(new UpsertOrgUnitRoute(authUCFactory, jsonSerializer, exceptionHandler, orgUnitUCFactory, new OrgUnitR2BConverter()));
-        delete(ORG_UNIT_ID_PATH_PARAM, new DeleteOrgUnitRoute(authUCFactory, jsonSerializer, exceptionHandler, orgUnitUCFactory));
+        path(ORG_UNIT_ID_PATH_PARAM, this::createOrgUnitIdRoutes);
+    }
+
+    private void createOrgUnitIdRoutes() {
+        get(new RetrieveOrgUnitByIdRoute(authUCFactory, jsonSerializer, exceptionHandler, orgUnitUCFactory, new OrgUnitB2RConverter()));
+        get(TRANSACTIONS_PATH, new RetrieveOrgUnitTransactionsRoute(authUCFactory, jsonSerializer, exceptionHandler, transactionUCFactory, new TransactionB2RConverter()));
+        get(AUTOMATIC_TRANSACTIONS_PATH, new RetrieveOrgUnitAutomaticTransactionsRoute(authUCFactory, jsonSerializer, exceptionHandler, automaticTransactionUCFactory, new AutomaticTransactionB2RConverter()));
+        delete(new DeleteOrgUnitRoute(authUCFactory, jsonSerializer, exceptionHandler, orgUnitUCFactory));
     }
 
     private void createUsersRoutes() {
-        get(new RetrieveUsersRoute(authUCFactory, userUCFactory, jsonSerializer, new UserDTOB2RConverter(), exceptionHandler));
+        get(context -> new RetrieveUsersRoute(userUCFactory, new UserDTOB2RConverter()).processRequest(context));
         post(ctx -> new CreateUserRoute(userUCFactory, new UserCreateR2BConverter()).processRequest(ctx));
         put(new UpdateUserRoute(authUCFactory, jsonSerializer, exceptionHandler, userUCFactory, new UserDTOR2BConverter()));
-        delete(USER_ID_PATH_PARAM, new DeleteUserRoute(authUCFactory, jsonSerializer, exceptionHandler, userUCFactory));
+        path(USER_ID_PATH_PARAM, this::createUserIdRoutes);
+    }
+
+    private void createUserIdRoutes() {
+        get(ORGANIZATIONS_PATH, new RetrieveUserOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationB2RConverter()));
+        delete(new DeleteUserRoute(authUCFactory, jsonSerializer, exceptionHandler, userUCFactory));
     }
 }

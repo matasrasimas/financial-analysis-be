@@ -3,6 +3,10 @@ package org.example;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import io.github.cdimascio.dotenv.Dotenv;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.CompletableSource;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import org.example.converter.*;
 import org.example.exception.JavalinExceptionHandler;
 import org.example.factory.*;
@@ -25,8 +29,11 @@ import org.jooq.impl.DataSourceConnectionProvider;
 import org.jooq.impl.DefaultConfiguration;
 import org.jooq.impl.ThreadLocalTransactionProvider;
 
+import java.util.concurrent.Executors;
 
 public class Main {
+    private static final CompositeDisposable DISPOSABLES = new CompositeDisposable();
+
     public static void main(String[] args) {
         Dotenv dotenv = Dotenv.configure().load();
 
@@ -63,12 +70,21 @@ public class Main {
         JwtProcessorBuilder jwtProcessorBuilder = new JwtProcessorBuilder(dotenv.get("JWT_SECRET_KEY"));
         TokenValidator tokenValidator = new JwtValidator(jwtProcessorBuilder.buildProcess());
 
-        AuthenticationUseCaseFactory authUCFactory = new AuthenticationUseCaseFactoryImpl(userGateway, new UserLoginB2DConverter(), tokenGenerator, tokenValidator, new UserDTOD2BConverter());
+        AuthenticationUseCaseFactory authUCFactory = new AuthenticationUseCaseFactoryImpl(userGateway, new UserLoginB2DConverter(), tokenGenerator, tokenValidator, new UserDTOD2BConverter(), orgUnitGateway);
         TransactionUseCaseFactory transactionUCFactory = new TransactionUseCaseFactoryImpl(transactionGateway, new TransactionD2BConverter(), new TransactionUpsertB2DConverter());
         AutomaticTransactionUseCaseFactory automaticTransactionUCFactory = new AutomaticTransactionUseCaseFactoryImpl(automaticTransactionGateway, new AutomaticTransactionD2BConverter(), new AutomaticTransactionB2DConverter());
-        OrganizationUseCaseFactory organizationUseCaseFactory = new OrganizationUseCaseFactoryImpl(organizationGateway, new OrganizationD2BConverter(), new OrganizationB2DConverter());
+        OrganizationUseCaseFactory organizationUseCaseFactory = new OrganizationUseCaseFactoryImpl(organizationGateway, new OrganizationD2BConverter(), new OrganizationB2DConverter(), new OrganizationCreateB2DConverter(), new OrgUnitD2BConverter());
         OrgUnitUseCaseFactory orgUnitUseCaseFactory = new OrgUnitUseCaseFactoryImpl(orgUnitGateway, new OrgUnitD2BConverter(), new OrgUnitB2DConverter());
         UserUseCaseFactory userUseCaseFactory = new UserUseCaseFactoryImpl(userGateway, new UserDTOD2BConverter(), new UserDTOB2DConverter(), new UserCreateB2DConverter());
+
+        AutomaticProcessUseCaseFactory automaticProcessUseCaseFactory = new AutomaticProcessUseCaseFactoryImpl(
+                Schedulers.from(Executors.newFixedThreadPool(1, new NameableThreadFactory("AutomaticTransactionsProcessor"))),
+                transactionGateway,
+                automaticTransactionGateway
+        );
+        automaticProcessUseCaseFactory.createProcessAutomaticTransactionsUseCase()
+                .execute()
+                .subscribe();
 
         JsonSerializer jsonSerializer = SerializerProvider.getSerializer();
         JavalinExceptionHandler exceptionHandler = new JavalinExceptionHandler();

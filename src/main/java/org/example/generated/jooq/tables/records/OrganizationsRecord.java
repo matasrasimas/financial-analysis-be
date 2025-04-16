@@ -34,45 +34,59 @@ public class OrganizationsRecord extends UpdatableRecordImpl<OrganizationsRecord
     }
 
     /**
+     * Setter for <code>organizations.user_id</code>.
+     */
+    public void setUserId(UUID value) {
+        set(1, value);
+    }
+
+    /**
+     * Getter for <code>organizations.user_id</code>.
+     */
+    public UUID getUserId() {
+        return (UUID) get(1);
+    }
+
+    /**
      * Setter for <code>organizations.title</code>.
      */
     public void setTitle(String value) {
-        set(1, value);
+        set(2, value);
     }
 
     /**
      * Getter for <code>organizations.title</code>.
      */
     public String getTitle() {
-        return (String) get(1);
+        return (String) get(2);
     }
 
     /**
      * Setter for <code>organizations.code</code>.
      */
     public void setCode(String value) {
-        set(2, value);
+        set(3, value);
     }
 
     /**
      * Getter for <code>organizations.code</code>.
      */
     public String getCode() {
-        return (String) get(2);
+        return (String) get(3);
     }
 
     /**
      * Setter for <code>organizations.address</code>.
      */
     public void setAddress(String value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>organizations.address</code>.
      */
     public String getAddress() {
-        return (String) get(3);
+        return (String) get(4);
     }
 
     // -------------------------------------------------------------------------
@@ -98,10 +112,11 @@ public class OrganizationsRecord extends UpdatableRecordImpl<OrganizationsRecord
     /**
      * Create a detached, initialised OrganizationsRecord
      */
-    public OrganizationsRecord(UUID id, String title, String code, String address) {
+    public OrganizationsRecord(UUID id, UUID userId, String title, String code, String address) {
         super(Organizations.ORGANIZATIONS);
 
         setId(id);
+        setUserId(userId);
         setTitle(title);
         setCode(code);
         setAddress(address);

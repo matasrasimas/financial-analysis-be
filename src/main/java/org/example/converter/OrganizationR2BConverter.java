@@ -10,7 +10,8 @@ public class OrganizationR2BConverter extends Converter<RestOrganization, Bounda
     @Override
     protected BoundaryOrganization convert(RestOrganization input) {
         return new BoundaryOrganization(
-                Optional.ofNullable(input.id()).map(UUID::fromString).orElse(UUID.randomUUID()),
+                UUID.fromString(input.id()),
+                UUID.fromString(input.userId()),
                 input.title(),
                 Optional.ofNullable(input.code()),
                 Optional.ofNullable(input.address())

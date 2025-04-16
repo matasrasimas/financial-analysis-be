@@ -5,18 +5,25 @@ package org.example.generated.jooq.tables;
 
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 import org.example.generated.jooq.DefaultSchema;
 import org.example.generated.jooq.Keys;
+import org.example.generated.jooq.tables.OrgUnits.OrgUnitsPath;
 import org.example.generated.jooq.tables.records.TransactionsRecord;
 import org.jooq.Condition;
 import org.jooq.Field;
+import org.jooq.ForeignKey;
+import org.jooq.InverseForeignKey;
 import org.jooq.Name;
+import org.jooq.Path;
 import org.jooq.PlainSQL;
 import org.jooq.QueryPart;
+import org.jooq.Record;
 import org.jooq.SQL;
 import org.jooq.Schema;
 import org.jooq.Select;
@@ -57,6 +64,11 @@ public class Transactions extends TableImpl<TransactionsRecord> {
     public final TableField<TransactionsRecord, UUID> ID = createField(DSL.name("id"), SQLDataType.UUID.nullable(false), this, "");
 
     /**
+     * The column <code>transactions.org_unit_id</code>.
+     */
+    public final TableField<TransactionsRecord, UUID> ORG_UNIT_ID = createField(DSL.name("org_unit_id"), SQLDataType.UUID.nullable(false), this, "");
+
+    /**
      * The column <code>transactions.amount</code>.
      */
     public final TableField<TransactionsRecord, BigDecimal> AMOUNT = createField(DSL.name("amount"), SQLDataType.NUMERIC(10, 2).nullable(false), this, "");
@@ -72,9 +84,9 @@ public class Transactions extends TableImpl<TransactionsRecord> {
     public final TableField<TransactionsRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB, this, "");
 
     /**
-     * The column <code>transactions.createdat</code>.
+     * The column <code>transactions.created_at</code>.
      */
-    public final TableField<TransactionsRecord, LocalDateTime> CREATEDAT = createField(DSL.name("createdat"), SQLDataType.LOCALDATETIME(6).nullable(false), this, "");
+    public final TableField<TransactionsRecord, LocalDate> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATE.nullable(false), this, "");
 
     private Transactions(Name alias, Table<TransactionsRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
@@ -105,6 +117,37 @@ public class Transactions extends TableImpl<TransactionsRecord> {
         this(DSL.name("transactions"), null);
     }
 
+    public <O extends Record> Transactions(Table<O> path, ForeignKey<O, TransactionsRecord> childPath, InverseForeignKey<O, TransactionsRecord> parentPath) {
+        super(path, childPath, parentPath, TRANSACTIONS);
+    }
+
+    /**
+     * A subtype implementing {@link Path} for simplified path-based joins.
+     */
+    public static class TransactionsPath extends Transactions implements Path<TransactionsRecord> {
+        public <O extends Record> TransactionsPath(Table<O> path, ForeignKey<O, TransactionsRecord> childPath, InverseForeignKey<O, TransactionsRecord> parentPath) {
+            super(path, childPath, parentPath);
+        }
+        private TransactionsPath(Name alias, Table<TransactionsRecord> aliased) {
+            super(alias, aliased);
+        }
+
+        @Override
+        public TransactionsPath as(String alias) {
+            return new TransactionsPath(DSL.name(alias), this);
+        }
+
+        @Override
+        public TransactionsPath as(Name alias) {
+            return new TransactionsPath(alias, this);
+        }
+
+        @Override
+        public TransactionsPath as(Table<?> alias) {
+            return new TransactionsPath(alias.getQualifiedName(), this);
+        }
+    }
+
     @Override
     public Schema getSchema() {
         return aliased() ? null : DefaultSchema.DEFAULT_SCHEMA;
@@ -113,6 +156,23 @@ public class Transactions extends TableImpl<TransactionsRecord> {
     @Override
     public UniqueKey<TransactionsRecord> getPrimaryKey() {
         return Keys.TRANSACTIONS_PKEY;
+    }
+
+    @Override
+    public List<ForeignKey<TransactionsRecord, ?>> getReferences() {
+        return Arrays.asList(Keys.TRANSACTIONS__TRANSACTIONS_ORG_UNIT_ID_FKEY);
+    }
+
+    private transient OrgUnitsPath _orgUnits;
+
+    /**
+     * Get the implicit join path to the <code>public.org_units</code> table.
+     */
+    public OrgUnitsPath orgUnits() {
+        if (_orgUnits == null)
+            _orgUnits = new OrgUnitsPath(this, Keys.TRANSACTIONS__TRANSACTIONS_ORG_UNIT_ID_FKEY, null);
+
+        return _orgUnits;
     }
 
     @Override

@@ -45,5 +45,8 @@ public class Keys {
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final ForeignKey<AutomaticTransactionsRecord, OrgUnitsRecord> AUTOMATIC_TRANSACTIONS__AUTOMATIC_TRANSACTIONS_ORG_UNIT_ID_FKEY = Internal.createForeignKey(AutomaticTransactions.AUTOMATIC_TRANSACTIONS, DSL.name("automatic_transactions_org_unit_id_fkey"), new TableField[] { AutomaticTransactions.AUTOMATIC_TRANSACTIONS.ORG_UNIT_ID }, Keys.ORG_UNITS_PKEY, new TableField[] { OrgUnits.ORG_UNITS.ID }, true);
     public static final ForeignKey<OrgUnitsRecord, OrganizationsRecord> ORG_UNITS__ORG_UNITS_ORGANIZATION_ID_FKEY = Internal.createForeignKey(OrgUnits.ORG_UNITS, DSL.name("org_units_organization_id_fkey"), new TableField[] { OrgUnits.ORG_UNITS.ORGANIZATION_ID }, Keys.ORGANIZATIONS_PKEY, new TableField[] { Organizations.ORGANIZATIONS.ID }, true);
+    public static final ForeignKey<OrganizationsRecord, UsersRecord> ORGANIZATIONS__ORGANIZATIONS_USER_ID_FKEY = Internal.createForeignKey(Organizations.ORGANIZATIONS, DSL.name("organizations_user_id_fkey"), new TableField[] { Organizations.ORGANIZATIONS.USER_ID }, Keys.USERS_PKEY, new TableField[] { Users.USERS.ID }, true);
+    public static final ForeignKey<TransactionsRecord, OrgUnitsRecord> TRANSACTIONS__TRANSACTIONS_ORG_UNIT_ID_FKEY = Internal.createForeignKey(Transactions.TRANSACTIONS, DSL.name("transactions_org_unit_id_fkey"), new TableField[] { Transactions.TRANSACTIONS.ORG_UNIT_ID }, Keys.ORG_UNITS_PKEY, new TableField[] { OrgUnits.ORG_UNITS.ID }, true);
 }

@@ -10,7 +10,7 @@ public class OrgUnitR2BConverter extends Converter<RestOrgUnit, BoundaryOrgUnit>
     @Override
     protected BoundaryOrgUnit convert(RestOrgUnit input) {
         return new BoundaryOrgUnit(
-                UUID.fromString(input.id()),
+                Optional.ofNullable(input.id()).map(UUID::fromString).orElse(UUID.randomUUID()),
                 UUID.fromString(input.orgId()),
                 input.title(),
                 Optional.ofNullable(input.code()),

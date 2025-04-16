@@ -8,6 +8,7 @@ public class OrganizationB2DConverter extends Converter<BoundaryOrganization, Or
     protected Organization convert(BoundaryOrganization input) {
         return new Organization(
                 input.id(),
+                input.userId(),
                 input.title(),
                 input.code(),
                 input.address()

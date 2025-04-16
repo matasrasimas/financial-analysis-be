@@ -8,7 +8,9 @@ import java.util.UUID;
 
 public interface OrgUnitGateway {
     List<OrgUnit> retrieve();
+    List<OrgUnit> retrieveByOrgId(UUID orgId);
     Optional<OrgUnit> retrieveById(UUID id);
+    List<String> retrieveOrgUnitIdsByUserId(UUID userId);
     void upsert(OrgUnit input);
     void delete(UUID id);
 }

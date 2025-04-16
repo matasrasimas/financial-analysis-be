@@ -44,6 +44,10 @@ public class RequestWrapper {
         return parseParam(paramKey, LocalDate::parse);
     }
 
+    public UploadedFile parseFile() {
+        return context.uploadedFile("imageFile");
+    }
+
     public String parseStringParam(String paramKey) {
         return Optional.ofNullable(context.queryParam(paramKey))
                 .orElseThrow(() -> new InvalidParamException("Invalid param exception"));

@@ -8,8 +8,8 @@ import org.jooq.DSLContext;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,28 +29,48 @@ public class PostgresAutomaticTransactionGateway implements AutomaticTransaction
     }
 
     @Override
-    public Optional<AutomaticTransaction> retrieveById(UUID id) {
-        return Optional.empty();
+    public List<AutomaticTransaction> retrieveByOrgUnitId(UUID orgUnitId) {
+        return dslContext.selectFrom(AUTOMATIC_TRANSACTIONS)
+                .where(AUTOMATIC_TRANSACTIONS.ORG_UNIT_ID.eq(orgUnitId))
+                .fetch(this::buildAutomaticTransaction);
     }
 
     @Override
-    public void upsert(AutomaticTransaction input) {
+    public Optional<AutomaticTransaction> retrieveById(UUID id) {
+        return dslContext.selectFrom(AUTOMATIC_TRANSACTIONS)
+                .where(AUTOMATIC_TRANSACTIONS.ID.eq(id))
+                .fetchOptional(this::buildAutomaticTransaction);
+    }
+
+    @Override
+    public Map<AutomaticTransaction, LocalDateTime> getLatestDateByAutomaticTransaction() {
+        return dslContext.selectFrom(AUTOMATIC_TRANSACTIONS)
+                .fetchMap(
+                        this::buildAutomaticTransaction,
+                        record -> record.getLatestTransactionDate()
+                );
+    }
+
+    @Override
+    public AutomaticTransaction upsert(AutomaticTransaction input) {
         dslContext.insertInto(AUTOMATIC_TRANSACTIONS)
                 .set(AUTOMATIC_TRANSACTIONS.ID, input.id())
+                .set(AUTOMATIC_TRANSACTIONS.ORG_UNIT_ID, input.orgUnitId())
                 .set(AUTOMATIC_TRANSACTIONS.AMOUNT, BigDecimal.valueOf(input.amount()))
                 .set(AUTOMATIC_TRANSACTIONS.TITLE, input.title())
                 .set(AUTOMATIC_TRANSACTIONS.DESCRIPTION, input.description().orElse(null))
-                .set(AUTOMATIC_TRANSACTIONS.LATEST_TRANSACTION_DATE, LocalDateTime.ofInstant(input.latestTransactionDate(), ZoneOffset.UTC))
-                .set(AUTOMATIC_TRANSACTIONS.DURATION_MINUTES, input.durationMinutes())
+                .set(AUTOMATIC_TRANSACTIONS.LATEST_TRANSACTION_DATE, LocalDateTime.now())
+                .set(AUTOMATIC_TRANSACTIONS.DURATION, input.duration())
                 .set(AUTOMATIC_TRANSACTIONS.DURATION_UNIT, mapToDurationEnum(input.durationUnit()))
                 .onDuplicateKeyUpdate()
                 .set(AUTOMATIC_TRANSACTIONS.AMOUNT, BigDecimal.valueOf(input.amount()))
                 .set(AUTOMATIC_TRANSACTIONS.TITLE, input.title())
                 .set(AUTOMATIC_TRANSACTIONS.DESCRIPTION, input.description().orElse(null))
-                .set(AUTOMATIC_TRANSACTIONS.LATEST_TRANSACTION_DATE, LocalDateTime.ofInstant(input.latestTransactionDate(), ZoneOffset.UTC))
-                .set(AUTOMATIC_TRANSACTIONS.DURATION_MINUTES, input.durationMinutes())
+                .set(AUTOMATIC_TRANSACTIONS.DURATION, input.duration())
                 .set(AUTOMATIC_TRANSACTIONS.DURATION_UNIT, mapToDurationEnum(input.durationUnit()))
                 .execute();
+
+        return input;
     }
 
     @Override
@@ -60,14 +80,22 @@ public class PostgresAutomaticTransactionGateway implements AutomaticTransaction
                 .execute();
     }
 
+    @Override
+    public void updateLatestTransactionDate(UUID transactionId) {
+        dslContext.update(AUTOMATIC_TRANSACTIONS)
+                .set(AUTOMATIC_TRANSACTIONS.LATEST_TRANSACTION_DATE, LocalDateTime.now())
+                .where(AUTOMATIC_TRANSACTIONS.ID.eq(transactionId))
+                .execute();
+    }
+
     private AutomaticTransaction buildAutomaticTransaction(AutomaticTransactionsRecord record) {
         return new AutomaticTransaction(
                 record.getId(),
+                record.getOrgUnitId(),
                 record.getAmount().doubleValue(),
                 record.getTitle(),
                 Optional.ofNullable(record.getDescription()),
-                record.getLatestTransactionDate().toInstant(ZoneOffset.UTC),
-                record.getDurationMinutes(),
+                record.getDuration(),
                 mapToDurationUnit(record.getDurationUnit())
         );
     }

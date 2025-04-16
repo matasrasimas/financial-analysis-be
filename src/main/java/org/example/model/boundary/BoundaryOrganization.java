@@ -4,8 +4,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 public record BoundaryOrganization(UUID id,
-                           String title,
-                           Optional<String> code,
-                           Optional<String> address) {
-
+                                   UUID userId,
+                                   String title,
+                                   Optional<String> code,
+                                   Optional<String> address) {
 }

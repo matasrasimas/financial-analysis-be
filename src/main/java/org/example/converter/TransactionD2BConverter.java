@@ -8,6 +8,7 @@ public class TransactionD2BConverter extends Converter<Transaction, BoundaryTran
     protected BoundaryTransaction convert(Transaction input) {
         return new BoundaryTransaction(
                 input.id(),
+                input.orgUnitId(),
                 input.amount(),
                 input.title(),
                 input.description(),

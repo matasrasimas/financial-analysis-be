@@ -8,10 +8,11 @@ public class TransactionB2RConverter extends Converter<BoundaryTransaction, Rest
     protected RestTransaction convert(BoundaryTransaction input) {
         return new RestTransaction(
                 input.id().toString(),
+                input.orgUnitId().toString(),
                 input.amount(),
                 input.title(),
                 input.description().orElse(null),
-                input.createdAt()
+                input.createdAt().toString()
         );
     }
 }

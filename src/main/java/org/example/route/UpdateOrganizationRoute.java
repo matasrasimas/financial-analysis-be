@@ -9,11 +9,11 @@ import org.example.model.boundary.BoundaryOrganization;
 import org.example.model.rest.RestOrganization;
 import org.example.serialization.json.JsonSerializer;
 
-public class UpsertOrganizationRoute extends WithoutResponseBodyRoute {
+public class UpdateOrganizationRoute extends WithoutResponseBodyRoute {
     private final OrganizationUseCaseFactory organizationUCFactory;
     private final OrganizationR2BConverter organizationR2BConverter;
 
-    public UpsertOrganizationRoute(AuthenticationUseCaseFactory authenticationUseCaseFactory,
+    public UpdateOrganizationRoute(AuthenticationUseCaseFactory authenticationUseCaseFactory,
                                    JsonSerializer jsonSerializer,
                                    JavalinExceptionHandler exceptionHandler,
                                    OrganizationUseCaseFactory organizationUCFactory,
@@ -28,6 +28,6 @@ public class UpsertOrganizationRoute extends WithoutResponseBodyRoute {
         RestOrganization reqBody = request.deserializeBody(RestOrganization.class);
         BoundaryOrganization boundaryOrganization = organizationR2BConverter.process(reqBody).orElseThrow();
 
-        return organizationUCFactory.createUpsertOrganizationUseCase().execute(boundaryOrganization);
+        return organizationUCFactory.createUpdateOrganizationUseCase().execute(boundaryOrganization);
     }
 }

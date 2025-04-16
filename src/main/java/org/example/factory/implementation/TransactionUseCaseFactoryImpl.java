@@ -4,12 +4,8 @@ import org.example.converter.TransactionD2BConverter;
 import org.example.converter.TransactionUpsertB2DConverter;
 import org.example.factory.TransactionUseCaseFactory;
 import org.example.gateway.TransactionGateway;
-import org.example.usecase.DeleteTransactionUseCase;
-import org.example.usecase.RetrieveTransactionsUseCase;
-import org.example.usecase.UpsertTransactionUseCase;
-import org.example.usecase.implementation.DeleteTransactionInteractor;
-import org.example.usecase.implementation.RetrieveTransactionsInteractor;
-import org.example.usecase.implementation.UpsertTransactionInteractor;
+import org.example.usecase.*;
+import org.example.usecase.implementation.*;
 
 public class TransactionUseCaseFactoryImpl implements TransactionUseCaseFactory {
     private final TransactionGateway transactionGateway;
@@ -30,12 +26,22 @@ public class TransactionUseCaseFactoryImpl implements TransactionUseCaseFactory 
     }
 
     @Override
-    public UpsertTransactionUseCase createUpsertTransactionUseCase() {
-        return new UpsertTransactionInteractor(transactionGateway, transactionUpsertB2DConverter);
+    public RetrieveOrgUnitTransactionsUseCase createRetrieveOrgUnitTransactionsUseCase() {
+        return new RetrieveOrgUnitTransactionsInteractor(transactionGateway, transactionD2BConverter);
+    }
+
+    @Override
+    public UpsertTransactionsUseCase createUpsertTransactionsUseCase() {
+        return new UpsertTransactionsInteractor(transactionGateway, transactionUpsertB2DConverter, transactionD2BConverter);
     }
 
     @Override
     public DeleteTransactionUseCase createDeleteTransactionUseCase() {
         return new DeleteTransactionInteractor(transactionGateway);
+    }
+
+    @Override
+    public GenerateTransactionsFromFileUseCase createGenerateTransactionsFromFileUseCase() {
+        return new GenerateTransactionsFromFileInteractor();
     }
 }

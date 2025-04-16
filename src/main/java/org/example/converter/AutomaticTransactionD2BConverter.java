@@ -8,11 +8,11 @@ public class AutomaticTransactionD2BConverter extends Converter<AutomaticTransac
     protected BoundaryAutomaticTransaction convert(AutomaticTransaction input) {
         return new BoundaryAutomaticTransaction(
                 input.id(),
+                input.orgUnitId(),
                 input.amount(),
                 input.title(),
                 input.description(),
-                input.latestTransactionDate(),
-                input.durationMinutes(),
+                input.duration(),
                 input.durationUnit().toString()
         );
     }

@@ -4,12 +4,15 @@
 package org.example.generated.jooq.tables;
 
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 import org.example.generated.jooq.DefaultSchema;
 import org.example.generated.jooq.Keys;
 import org.example.generated.jooq.tables.OrgUnits.OrgUnitsPath;
+import org.example.generated.jooq.tables.Users.UsersPath;
 import org.example.generated.jooq.tables.records.OrganizationsRecord;
 import org.jooq.Condition;
 import org.jooq.Field;
@@ -58,6 +61,11 @@ public class Organizations extends TableImpl<OrganizationsRecord> {
      * The column <code>organizations.id</code>.
      */
     public final TableField<OrganizationsRecord, UUID> ID = createField(DSL.name("id"), SQLDataType.UUID.nullable(false), this, "");
+
+    /**
+     * The column <code>organizations.user_id</code>.
+     */
+    public final TableField<OrganizationsRecord, UUID> USER_ID = createField(DSL.name("user_id"), SQLDataType.UUID.nullable(false), this, "");
 
     /**
      * The column <code>organizations.title</code>.
@@ -142,6 +150,23 @@ public class Organizations extends TableImpl<OrganizationsRecord> {
     @Override
     public UniqueKey<OrganizationsRecord> getPrimaryKey() {
         return Keys.ORGANIZATIONS_PKEY;
+    }
+
+    @Override
+    public List<ForeignKey<OrganizationsRecord, ?>> getReferences() {
+        return Arrays.asList(Keys.ORGANIZATIONS__ORGANIZATIONS_USER_ID_FKEY);
+    }
+
+    private transient UsersPath _users;
+
+    /**
+     * Get the implicit join path to the <code>public.users</code> table.
+     */
+    public UsersPath users() {
+        if (_users == null)
+            _users = new UsersPath(this, Keys.ORGANIZATIONS__ORGANIZATIONS_USER_ID_FKEY, null);
+
+        return _users;
     }
 
     private transient OrgUnitsPath _orgUnits;

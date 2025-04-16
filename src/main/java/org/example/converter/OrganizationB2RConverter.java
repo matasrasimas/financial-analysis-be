@@ -8,6 +8,7 @@ public class OrganizationB2RConverter extends Converter<BoundaryOrganization, Re
     protected RestOrganization convert(BoundaryOrganization input) {
         return new RestOrganization(
                 input.id().toString(),
+                input.userId().toString(),
                 input.title(),
                 input.code().orElse(null),
                 input.address().orElse(null)

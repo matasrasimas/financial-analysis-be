@@ -14,13 +14,18 @@ import java.util.UUID;
 import org.example.generated.jooq.DefaultSchema;
 import org.example.generated.jooq.Keys;
 import org.example.generated.jooq.enums.DurationEnum;
+import org.example.generated.jooq.tables.OrgUnits.OrgUnitsPath;
 import org.example.generated.jooq.tables.records.AutomaticTransactionsRecord;
 import org.jooq.Check;
 import org.jooq.Condition;
 import org.jooq.Field;
+import org.jooq.ForeignKey;
+import org.jooq.InverseForeignKey;
 import org.jooq.Name;
+import org.jooq.Path;
 import org.jooq.PlainSQL;
 import org.jooq.QueryPart;
+import org.jooq.Record;
 import org.jooq.SQL;
 import org.jooq.Schema;
 import org.jooq.Select;
@@ -62,6 +67,11 @@ public class AutomaticTransactions extends TableImpl<AutomaticTransactionsRecord
     public final TableField<AutomaticTransactionsRecord, UUID> ID = createField(DSL.name("id"), SQLDataType.UUID.nullable(false), this, "");
 
     /**
+     * The column <code>automatic_transactions.org_unit_id</code>.
+     */
+    public final TableField<AutomaticTransactionsRecord, UUID> ORG_UNIT_ID = createField(DSL.name("org_unit_id"), SQLDataType.UUID.nullable(false), this, "");
+
+    /**
      * The column <code>automatic_transactions.amount</code>.
      */
     public final TableField<AutomaticTransactionsRecord, BigDecimal> AMOUNT = createField(DSL.name("amount"), SQLDataType.NUMERIC(10, 2).nullable(false), this, "");
@@ -82,9 +92,9 @@ public class AutomaticTransactions extends TableImpl<AutomaticTransactionsRecord
     public final TableField<AutomaticTransactionsRecord, LocalDateTime> LATEST_TRANSACTION_DATE = createField(DSL.name("latest_transaction_date"), SQLDataType.LOCALDATETIME(6).nullable(false), this, "");
 
     /**
-     * The column <code>automatic_transactions.duration_minutes</code>.
+     * The column <code>automatic_transactions.duration</code>.
      */
-    public final TableField<AutomaticTransactionsRecord, Integer> DURATION_MINUTES = createField(DSL.name("duration_minutes"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<AutomaticTransactionsRecord, Integer> DURATION = createField(DSL.name("duration"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>automatic_transactions.duration_unit</code>.
@@ -120,6 +130,37 @@ public class AutomaticTransactions extends TableImpl<AutomaticTransactionsRecord
         this(DSL.name("automatic_transactions"), null);
     }
 
+    public <O extends Record> AutomaticTransactions(Table<O> path, ForeignKey<O, AutomaticTransactionsRecord> childPath, InverseForeignKey<O, AutomaticTransactionsRecord> parentPath) {
+        super(path, childPath, parentPath, AUTOMATIC_TRANSACTIONS);
+    }
+
+    /**
+     * A subtype implementing {@link Path} for simplified path-based joins.
+     */
+    public static class AutomaticTransactionsPath extends AutomaticTransactions implements Path<AutomaticTransactionsRecord> {
+        public <O extends Record> AutomaticTransactionsPath(Table<O> path, ForeignKey<O, AutomaticTransactionsRecord> childPath, InverseForeignKey<O, AutomaticTransactionsRecord> parentPath) {
+            super(path, childPath, parentPath);
+        }
+        private AutomaticTransactionsPath(Name alias, Table<AutomaticTransactionsRecord> aliased) {
+            super(alias, aliased);
+        }
+
+        @Override
+        public AutomaticTransactionsPath as(String alias) {
+            return new AutomaticTransactionsPath(DSL.name(alias), this);
+        }
+
+        @Override
+        public AutomaticTransactionsPath as(Name alias) {
+            return new AutomaticTransactionsPath(alias, this);
+        }
+
+        @Override
+        public AutomaticTransactionsPath as(Table<?> alias) {
+            return new AutomaticTransactionsPath(alias.getQualifiedName(), this);
+        }
+    }
+
     @Override
     public Schema getSchema() {
         return aliased() ? null : DefaultSchema.DEFAULT_SCHEMA;
@@ -131,9 +172,26 @@ public class AutomaticTransactions extends TableImpl<AutomaticTransactionsRecord
     }
 
     @Override
+    public List<ForeignKey<AutomaticTransactionsRecord, ?>> getReferences() {
+        return Arrays.asList(Keys.AUTOMATIC_TRANSACTIONS__AUTOMATIC_TRANSACTIONS_ORG_UNIT_ID_FKEY);
+    }
+
+    private transient OrgUnitsPath _orgUnits;
+
+    /**
+     * Get the implicit join path to the <code>public.org_units</code> table.
+     */
+    public OrgUnitsPath orgUnits() {
+        if (_orgUnits == null)
+            _orgUnits = new OrgUnitsPath(this, Keys.AUTOMATIC_TRANSACTIONS__AUTOMATIC_TRANSACTIONS_ORG_UNIT_ID_FKEY, null);
+
+        return _orgUnits;
+    }
+
+    @Override
     public List<Check<AutomaticTransactionsRecord>> getChecks() {
         return Arrays.asList(
-            Internal.createCheck(this, DSL.name("automatic_transactions_duration_minutes_check"), "((duration_minutes > 0))", true)
+            Internal.createCheck(this, DSL.name("automatic_transactions_duration_check"), "((duration > 0))", true)
         );
     }
 

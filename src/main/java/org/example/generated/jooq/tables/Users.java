@@ -9,12 +9,17 @@ import java.util.UUID;
 
 import org.example.generated.jooq.DefaultSchema;
 import org.example.generated.jooq.Keys;
+import org.example.generated.jooq.tables.Organizations.OrganizationsPath;
 import org.example.generated.jooq.tables.records.UsersRecord;
 import org.jooq.Condition;
 import org.jooq.Field;
+import org.jooq.ForeignKey;
+import org.jooq.InverseForeignKey;
 import org.jooq.Name;
+import org.jooq.Path;
 import org.jooq.PlainSQL;
 import org.jooq.QueryPart;
+import org.jooq.Record;
 import org.jooq.SQL;
 import org.jooq.Schema;
 import org.jooq.Select;
@@ -108,6 +113,37 @@ public class Users extends TableImpl<UsersRecord> {
         this(DSL.name("users"), null);
     }
 
+    public <O extends Record> Users(Table<O> path, ForeignKey<O, UsersRecord> childPath, InverseForeignKey<O, UsersRecord> parentPath) {
+        super(path, childPath, parentPath, USERS);
+    }
+
+    /**
+     * A subtype implementing {@link Path} for simplified path-based joins.
+     */
+    public static class UsersPath extends Users implements Path<UsersRecord> {
+        public <O extends Record> UsersPath(Table<O> path, ForeignKey<O, UsersRecord> childPath, InverseForeignKey<O, UsersRecord> parentPath) {
+            super(path, childPath, parentPath);
+        }
+        private UsersPath(Name alias, Table<UsersRecord> aliased) {
+            super(alias, aliased);
+        }
+
+        @Override
+        public UsersPath as(String alias) {
+            return new UsersPath(DSL.name(alias), this);
+        }
+
+        @Override
+        public UsersPath as(Name alias) {
+            return new UsersPath(alias, this);
+        }
+
+        @Override
+        public UsersPath as(Table<?> alias) {
+            return new UsersPath(alias.getQualifiedName(), this);
+        }
+    }
+
     @Override
     public Schema getSchema() {
         return aliased() ? null : DefaultSchema.DEFAULT_SCHEMA;
@@ -116,6 +152,19 @@ public class Users extends TableImpl<UsersRecord> {
     @Override
     public UniqueKey<UsersRecord> getPrimaryKey() {
         return Keys.USERS_PKEY;
+    }
+
+    private transient OrganizationsPath _organizations;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.organizations</code> table
+     */
+    public OrganizationsPath organizations() {
+        if (_organizations == null)
+            _organizations = new OrganizationsPath(this, null, Keys.ORGANIZATIONS__ORGANIZATIONS_USER_ID_FKEY.getInverseKey());
+
+        return _organizations;
     }
 
     @Override

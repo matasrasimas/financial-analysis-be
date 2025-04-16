@@ -6,9 +6,11 @@ import org.example.factory.AutomaticTransactionUseCaseFactory;
 import org.example.gateway.AutomaticTransactionGateway;
 import org.example.usecase.DeleteAutomaticTransactionUseCase;
 import org.example.usecase.RetrieveAutomaticTransactionsUseCase;
+import org.example.usecase.RetrieveOrgUnitAutomaticTransactionsUseCase;
 import org.example.usecase.UpsertAutomaticTransactionUseCase;
 import org.example.usecase.implementation.DeleteAutomaticTransactionInteractor;
 import org.example.usecase.implementation.RetrieveAutomaticTransactionsInteractor;
+import org.example.usecase.implementation.RetrieveOrgUnitAutomaticTransactionsInteractor;
 import org.example.usecase.implementation.UpsertAutomaticTransactionInteractor;
 
 public class AutomaticTransactionUseCaseFactoryImpl implements AutomaticTransactionUseCaseFactory {
@@ -30,8 +32,13 @@ public class AutomaticTransactionUseCaseFactoryImpl implements AutomaticTransact
     }
 
     @Override
+    public RetrieveOrgUnitAutomaticTransactionsUseCase createRetrieveOrgUnitAutomaticTransactionsUseCase() {
+        return new RetrieveOrgUnitAutomaticTransactionsInteractor(automaticTransactionGateway, automaticTransactionD2BConverter);
+    }
+
+    @Override
     public UpsertAutomaticTransactionUseCase createUpsertAutomaticTransactionUseCase() {
-        return new UpsertAutomaticTransactionInteractor(automaticTransactionGateway, automaticTransactionB2DConverter);
+        return new UpsertAutomaticTransactionInteractor(automaticTransactionGateway, automaticTransactionB2DConverter, automaticTransactionD2BConverter);
     }
 
     @Override

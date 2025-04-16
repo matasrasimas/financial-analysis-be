@@ -1,11 +1,11 @@
 package org.example.factory;
 
-import org.example.usecase.DeleteOrganizationUseCase;
-import org.example.usecase.RetrieveOrganizationsUseCase;
-import org.example.usecase.UpsertOrganizationUseCase;
+import org.example.usecase.*;
 
 public interface OrganizationUseCaseFactory {
     RetrieveOrganizationsUseCase createRetrieveOrganizationsUseCase();
-    UpsertOrganizationUseCase createUpsertOrganizationUseCase();
+    RetrieveUserOrganizationUseCase createRetrieveUserOrganizationUseCase();
+    CreateOrganizationUseCase createCreateOrganizationUseCase();
+    UpdateOrganizationUseCase createUpdateOrganizationUseCase();
     DeleteOrganizationUseCase createDeleteOrganizationUseCase();
 }

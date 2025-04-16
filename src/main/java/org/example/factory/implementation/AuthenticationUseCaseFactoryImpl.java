@@ -4,6 +4,7 @@ import org.example.converter.UserDTOD2BConverter;
 import org.example.converter.UserLoginB2DConverter;
 import org.example.factory.AuthenticationUseCaseFactory;
 import org.example.factory.LoginUseCase;
+import org.example.gateway.OrgUnitGateway;
 import org.example.gateway.UserGateway;
 import org.example.usecase.TokenGenerator;
 import org.example.usecase.TokenValidator;
@@ -16,17 +17,20 @@ public class AuthenticationUseCaseFactoryImpl implements AuthenticationUseCaseFa
     private final TokenGenerator tokenGenerator;
     private final TokenValidator tokenValidator;
     private final UserDTOD2BConverter userDTOD2BConverter;
+    private final OrgUnitGateway orgUnitGateway;
 
     public AuthenticationUseCaseFactoryImpl(UserGateway userGateway,
                                             UserLoginB2DConverter userLoginB2DConverter,
                                             TokenGenerator tokenGenerator,
                                             TokenValidator tokenValidator,
-                                            UserDTOD2BConverter userDTOD2BConverter) {
+                                            UserDTOD2BConverter userDTOD2BConverter,
+                                            OrgUnitGateway orgUnitGateway) {
         this.userGateway = userGateway;
         this.userLoginB2DConverter = userLoginB2DConverter;
         this.tokenGenerator = tokenGenerator;
         this.tokenValidator = tokenValidator;
         this.userDTOD2BConverter = userDTOD2BConverter;
+        this.orgUnitGateway = orgUnitGateway;
     }
 
     @Override
@@ -36,6 +40,6 @@ public class AuthenticationUseCaseFactoryImpl implements AuthenticationUseCaseFa
 
     @Override
     public LoginUseCase buildLoginUseCase() {
-        return new LoginInteractor(userGateway, userLoginB2DConverter, tokenGenerator);
+        return new LoginInteractor(userGateway, userLoginB2DConverter, tokenGenerator, orgUnitGateway);
     }
 }

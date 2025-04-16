@@ -38,6 +38,11 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
     implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0'
+    implementation 'com.google.cloud:google-cloud-vision:3.57.0'
+    implementation platform("com.google.cloud:libraries-bom:25.1.0")
+//    implementation("com.google.cloud:com.google.cloud:google-cloud-vision")
 }
 
 test {

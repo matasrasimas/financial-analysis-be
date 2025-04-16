@@ -3,13 +3,16 @@ package org.example.gateway;
 import org.example.model.domain.Transaction;
 import org.example.model.domain.TransactionUpsert;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 public interface TransactionGateway {
     List<Transaction> retrieve();
+    List<Transaction> retrieveByOrgUnitId(UUID orgUnitId, LocalDate from, LocalDate to);
     Optional<Transaction> retrieveById(UUID id);
-    void upsert(TransactionUpsert input);
+    Transaction upsert(TransactionUpsert input);
+    List<Transaction> upsert(List<TransactionUpsert> input);
     void delete(UUID transactionId);
 }

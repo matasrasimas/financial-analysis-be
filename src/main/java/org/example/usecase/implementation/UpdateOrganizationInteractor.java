@@ -4,13 +4,13 @@ import io.reactivex.rxjava3.core.Completable;
 import org.example.converter.OrganizationB2DConverter;
 import org.example.gateway.OrganizationGateway;
 import org.example.model.boundary.BoundaryOrganization;
-import org.example.usecase.UpsertOrganizationUseCase;
+import org.example.usecase.UpdateOrganizationUseCase;
 
-public class UpsertOrganizationInteractor implements UpsertOrganizationUseCase {
+public class UpdateOrganizationInteractor implements UpdateOrganizationUseCase {
     private final OrganizationGateway organizationGateway;
     private final OrganizationB2DConverter organizationB2DConverter;
 
-    public UpsertOrganizationInteractor(OrganizationGateway organizationGateway,
+    public UpdateOrganizationInteractor(OrganizationGateway organizationGateway,
                                         OrganizationB2DConverter organizationB2DConverter) {
         this.organizationGateway = organizationGateway;
         this.organizationB2DConverter = organizationB2DConverter;
@@ -18,6 +18,6 @@ public class UpsertOrganizationInteractor implements UpsertOrganizationUseCase {
 
     @Override
     public Completable execute(BoundaryOrganization input) {
-        return Completable.fromAction(() -> organizationGateway.upsert(organizationB2DConverter.process(input).orElseThrow()));
+        return Completable.fromAction(() -> organizationGateway.update(organizationB2DConverter.process(input).orElseThrow()));
     }
 }

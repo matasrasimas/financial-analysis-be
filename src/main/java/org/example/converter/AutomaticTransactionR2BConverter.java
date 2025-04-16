@@ -11,11 +11,11 @@ public class AutomaticTransactionR2BConverter extends  Converter<RestAutomaticTr
     protected BoundaryAutomaticTransaction convert(RestAutomaticTransaction input) {
         return new BoundaryAutomaticTransaction(
                 Optional.ofNullable(input.id()).map(UUID::fromString).orElse(UUID.randomUUID()),
+                UUID.fromString(input.orgUnitId()),
                 input.amount(),
                 input.title(),
                 Optional.ofNullable(input.description()),
-                input.latestTransactionDate(),
-                input.durationMinutes(),
+                input.duration(),
                 input.durationUnit()
         );
     }

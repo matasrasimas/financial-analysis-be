@@ -8,11 +8,11 @@ public class AutomaticTransactionB2RConverter extends Converter<BoundaryAutomati
     protected RestAutomaticTransaction convert(BoundaryAutomaticTransaction input) {
         return new RestAutomaticTransaction(
                 input.id().toString(),
+                input.orgUnitId().toString(),
                 input.amount(),
                 input.title(),
                 input.description().orElse(null),
-                input.latestTransactionDate(),
-                input.durationMinutes(),
+                input.duration(),
                 input.durationUnit()
 
 
