@@ -11,7 +11,8 @@ public class OrganizationD2BConverter extends Converter<Organization, BoundaryOr
                 input.userId(),
                 input.title(),
                 input.code(),
-                input.address()
+                input.address(),
+                input.yearlyGoal()
         );
     }
 }

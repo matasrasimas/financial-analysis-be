@@ -9,7 +9,9 @@ import java.util.UUID;
 
 import org.example.generated.jooq.DefaultSchema;
 import org.example.generated.jooq.Keys;
+import org.example.generated.jooq.tables.Invitations.InvitationsPath;
 import org.example.generated.jooq.tables.Organizations.OrganizationsPath;
+import org.example.generated.jooq.tables.Transactions.TransactionsPath;
 import org.example.generated.jooq.tables.records.UsersRecord;
 import org.jooq.Condition;
 import org.jooq.Field;
@@ -154,6 +156,32 @@ public class Users extends TableImpl<UsersRecord> {
         return Keys.USERS_PKEY;
     }
 
+    private transient InvitationsPath _invitationsReceiverIdFkey;
+
+    /**
+     * Get the implicit to-many join path to the <code>public.invitations</code>
+     * table, via the <code>invitations_receiver_id_fkey</code> key
+     */
+    public InvitationsPath invitationsReceiverIdFkey() {
+        if (_invitationsReceiverIdFkey == null)
+            _invitationsReceiverIdFkey = new InvitationsPath(this, null, Keys.INVITATIONS__INVITATIONS_RECEIVER_ID_FKEY.getInverseKey());
+
+        return _invitationsReceiverIdFkey;
+    }
+
+    private transient InvitationsPath _invitationsSenderIdFkey;
+
+    /**
+     * Get the implicit to-many join path to the <code>public.invitations</code>
+     * table, via the <code>invitations_sender_id_fkey</code> key
+     */
+    public InvitationsPath invitationsSenderIdFkey() {
+        if (_invitationsSenderIdFkey == null)
+            _invitationsSenderIdFkey = new InvitationsPath(this, null, Keys.INVITATIONS__INVITATIONS_SENDER_ID_FKEY.getInverseKey());
+
+        return _invitationsSenderIdFkey;
+    }
+
     private transient OrganizationsPath _organizations;
 
     /**
@@ -165,6 +193,19 @@ public class Users extends TableImpl<UsersRecord> {
             _organizations = new OrganizationsPath(this, null, Keys.ORGANIZATIONS__ORGANIZATIONS_USER_ID_FKEY.getInverseKey());
 
         return _organizations;
+    }
+
+    private transient TransactionsPath _transactions;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.transactions</code> table
+     */
+    public TransactionsPath transactions() {
+        if (_transactions == null)
+            _transactions = new TransactionsPath(this, null, Keys.TRANSACTIONS__FK_TRANSACTIONS_USER.getInverseKey());
+
+        return _transactions;
     }
 
     @Override

@@ -13,7 +13,8 @@ public class AutomaticTransactionD2BConverter extends Converter<AutomaticTransac
                 input.title(),
                 input.description(),
                 input.duration(),
-                input.durationUnit().toString()
+                input.durationUnit().toString(),
+                input.nextTransactionDate()
         );
     }
 }

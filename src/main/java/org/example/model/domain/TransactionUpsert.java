@@ -6,8 +6,9 @@ import java.util.UUID;
 
 public record TransactionUpsert(UUID id,
                                 UUID orgUnitId,
+                                UUID userId,
                                 double amount,
                                 String title,
-                                Optional<String> description,
-                                LocalDate createdAt) {
+                                LocalDate createdAt,
+                                boolean isLocked) {
 }

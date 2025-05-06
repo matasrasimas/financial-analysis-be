@@ -9,5 +9,6 @@ public record BoundaryAutomaticTransaction(UUID id,
                                            String title,
                                            Optional<String> description,
                                            int duration,
-                                           String durationUnit) {
+                                           String durationUnit,
+                                           String nextTransactionDate) {
 }

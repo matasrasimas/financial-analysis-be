@@ -6,12 +6,14 @@ package org.example.generated.jooq;
 
 import org.example.generated.jooq.tables.AutomaticTransactions;
 import org.example.generated.jooq.tables.FlywaySchemaHistory;
+import org.example.generated.jooq.tables.Invitations;
 import org.example.generated.jooq.tables.OrgUnits;
 import org.example.generated.jooq.tables.Organizations;
 import org.example.generated.jooq.tables.Transactions;
 import org.example.generated.jooq.tables.Users;
 import org.example.generated.jooq.tables.records.AutomaticTransactionsRecord;
 import org.example.generated.jooq.tables.records.FlywaySchemaHistoryRecord;
+import org.example.generated.jooq.tables.records.InvitationsRecord;
 import org.example.generated.jooq.tables.records.OrgUnitsRecord;
 import org.example.generated.jooq.tables.records.OrganizationsRecord;
 import org.example.generated.jooq.tables.records.TransactionsRecord;
@@ -36,6 +38,7 @@ public class Keys {
 
     public static final UniqueKey<AutomaticTransactionsRecord> AUTOMATIC_TRANSACTIONS_PKEY = Internal.createUniqueKey(AutomaticTransactions.AUTOMATIC_TRANSACTIONS, DSL.name("automatic_transactions_pkey"), new TableField[] { AutomaticTransactions.AUTOMATIC_TRANSACTIONS.ID }, true);
     public static final UniqueKey<FlywaySchemaHistoryRecord> FLYWAY_SCHEMA_HISTORY_PK = Internal.createUniqueKey(FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY, DSL.name("flyway_schema_history_pk"), new TableField[] { FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY.INSTALLED_RANK }, true);
+    public static final UniqueKey<InvitationsRecord> INVITATIONS_PKEY = Internal.createUniqueKey(Invitations.INVITATIONS, DSL.name("invitations_pkey"), new TableField[] { Invitations.INVITATIONS.ID }, true);
     public static final UniqueKey<OrgUnitsRecord> ORG_UNITS_PKEY = Internal.createUniqueKey(OrgUnits.ORG_UNITS, DSL.name("org_units_pkey"), new TableField[] { OrgUnits.ORG_UNITS.ID }, true);
     public static final UniqueKey<OrganizationsRecord> ORGANIZATIONS_PKEY = Internal.createUniqueKey(Organizations.ORGANIZATIONS, DSL.name("organizations_pkey"), new TableField[] { Organizations.ORGANIZATIONS.ID }, true);
     public static final UniqueKey<TransactionsRecord> TRANSACTIONS_PKEY = Internal.createUniqueKey(Transactions.TRANSACTIONS, DSL.name("transactions_pkey"), new TableField[] { Transactions.TRANSACTIONS.ID }, true);
@@ -46,7 +49,11 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     public static final ForeignKey<AutomaticTransactionsRecord, OrgUnitsRecord> AUTOMATIC_TRANSACTIONS__AUTOMATIC_TRANSACTIONS_ORG_UNIT_ID_FKEY = Internal.createForeignKey(AutomaticTransactions.AUTOMATIC_TRANSACTIONS, DSL.name("automatic_transactions_org_unit_id_fkey"), new TableField[] { AutomaticTransactions.AUTOMATIC_TRANSACTIONS.ORG_UNIT_ID }, Keys.ORG_UNITS_PKEY, new TableField[] { OrgUnits.ORG_UNITS.ID }, true);
+    public static final ForeignKey<InvitationsRecord, OrganizationsRecord> INVITATIONS__INVITATIONS_ORGANIZATION_ID_FKEY = Internal.createForeignKey(Invitations.INVITATIONS, DSL.name("invitations_organization_id_fkey"), new TableField[] { Invitations.INVITATIONS.ORGANIZATION_ID }, Keys.ORGANIZATIONS_PKEY, new TableField[] { Organizations.ORGANIZATIONS.ID }, true);
+    public static final ForeignKey<InvitationsRecord, UsersRecord> INVITATIONS__INVITATIONS_RECEIVER_ID_FKEY = Internal.createForeignKey(Invitations.INVITATIONS, DSL.name("invitations_receiver_id_fkey"), new TableField[] { Invitations.INVITATIONS.RECEIVER_ID }, Keys.USERS_PKEY, new TableField[] { Users.USERS.ID }, true);
+    public static final ForeignKey<InvitationsRecord, UsersRecord> INVITATIONS__INVITATIONS_SENDER_ID_FKEY = Internal.createForeignKey(Invitations.INVITATIONS, DSL.name("invitations_sender_id_fkey"), new TableField[] { Invitations.INVITATIONS.SENDER_ID }, Keys.USERS_PKEY, new TableField[] { Users.USERS.ID }, true);
     public static final ForeignKey<OrgUnitsRecord, OrganizationsRecord> ORG_UNITS__ORG_UNITS_ORGANIZATION_ID_FKEY = Internal.createForeignKey(OrgUnits.ORG_UNITS, DSL.name("org_units_organization_id_fkey"), new TableField[] { OrgUnits.ORG_UNITS.ORGANIZATION_ID }, Keys.ORGANIZATIONS_PKEY, new TableField[] { Organizations.ORGANIZATIONS.ID }, true);
     public static final ForeignKey<OrganizationsRecord, UsersRecord> ORGANIZATIONS__ORGANIZATIONS_USER_ID_FKEY = Internal.createForeignKey(Organizations.ORGANIZATIONS, DSL.name("organizations_user_id_fkey"), new TableField[] { Organizations.ORGANIZATIONS.USER_ID }, Keys.USERS_PKEY, new TableField[] { Users.USERS.ID }, true);
+    public static final ForeignKey<TransactionsRecord, UsersRecord> TRANSACTIONS__FK_TRANSACTIONS_USER = Internal.createForeignKey(Transactions.TRANSACTIONS, DSL.name("fk_transactions_user"), new TableField[] { Transactions.TRANSACTIONS.USER_ID }, Keys.USERS_PKEY, new TableField[] { Users.USERS.ID }, true);
     public static final ForeignKey<TransactionsRecord, OrgUnitsRecord> TRANSACTIONS__TRANSACTIONS_ORG_UNIT_ID_FKEY = Internal.createForeignKey(Transactions.TRANSACTIONS, DSL.name("transactions_org_unit_id_fkey"), new TableField[] { Transactions.TRANSACTIONS.ORG_UNIT_ID }, Keys.ORG_UNITS_PKEY, new TableField[] { OrgUnits.ORG_UNITS.ID }, true);
 }

@@ -105,6 +105,34 @@ public class TransactionsRecord extends UpdatableRecordImpl<TransactionsRecord> 
         return (LocalDate) get(5);
     }
 
+    /**
+     * Setter for <code>transactions.is_locked</code>.
+     */
+    public void setIsLocked(Boolean value) {
+        set(6, value);
+    }
+
+    /**
+     * Getter for <code>transactions.is_locked</code>.
+     */
+    public Boolean getIsLocked() {
+        return (Boolean) get(6);
+    }
+
+    /**
+     * Setter for <code>transactions.user_id</code>.
+     */
+    public void setUserId(UUID value) {
+        set(7, value);
+    }
+
+    /**
+     * Getter for <code>transactions.user_id</code>.
+     */
+    public UUID getUserId() {
+        return (UUID) get(7);
+    }
+
     // -------------------------------------------------------------------------
     // Primary key information
     // -------------------------------------------------------------------------
@@ -128,7 +156,7 @@ public class TransactionsRecord extends UpdatableRecordImpl<TransactionsRecord> 
     /**
      * Create a detached, initialised TransactionsRecord
      */
-    public TransactionsRecord(UUID id, UUID orgUnitId, BigDecimal amount, String title, String description, LocalDate createdAt) {
+    public TransactionsRecord(UUID id, UUID orgUnitId, BigDecimal amount, String title, String description, LocalDate createdAt, Boolean isLocked, UUID userId) {
         super(Transactions.TRANSACTIONS);
 
         setId(id);
@@ -137,6 +165,8 @@ public class TransactionsRecord extends UpdatableRecordImpl<TransactionsRecord> 
         setTitle(title);
         setDescription(description);
         setCreatedAt(createdAt);
+        setIsLocked(isLocked);
+        setUserId(userId);
         resetChangedOnNotNull();
     }
 }

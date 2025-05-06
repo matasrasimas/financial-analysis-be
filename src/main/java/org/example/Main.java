@@ -3,8 +3,7 @@ package org.example;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import io.github.cdimascio.dotenv.Dotenv;
-import io.reactivex.rxjava3.core.Completable;
-import io.reactivex.rxjava3.core.CompletableSource;
+import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import org.example.converter.*;
@@ -13,6 +12,7 @@ import org.example.factory.*;
 import org.example.factory.implementation.*;
 import org.example.gateway.*;
 import org.example.gateway.postgres.*;
+import org.example.gateway.xlsx.XlsxExportGateway;
 import org.example.serialization.json.JsonSerializer;
 import org.example.serialization.json.SerializerProvider;
 import org.example.usecase.TokenGenerator;
@@ -29,6 +29,7 @@ import org.jooq.impl.DataSourceConnectionProvider;
 import org.jooq.impl.DefaultConfiguration;
 import org.jooq.impl.ThreadLocalTransactionProvider;
 
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Main {
@@ -65,17 +66,24 @@ public class Main {
         OrganizationGateway organizationGateway = new PostgresOrganizationGateway(jooqDSLContext);
         OrgUnitGateway orgUnitGateway = new PostgresOrgUnitGateway(jooqDSLContext);
         UserGateway userGateway = new PostgresUserGateway(jooqDSLContext);
+        ExportGateway exportGateway = new XlsxExportGateway();
+        InvitationGateway invitationGateway = new PostgresInvitationGateway(jooqDSLContext);
 
         TokenGenerator tokenGenerator = new JwtGenerator(dotenv.get("JWT_SECRET_KEY"));
         JwtProcessorBuilder jwtProcessorBuilder = new JwtProcessorBuilder(dotenv.get("JWT_SECRET_KEY"));
         TokenValidator tokenValidator = new JwtValidator(jwtProcessorBuilder.buildProcess());
 
-        AuthenticationUseCaseFactory authUCFactory = new AuthenticationUseCaseFactoryImpl(userGateway, new UserLoginB2DConverter(), tokenGenerator, tokenValidator, new UserDTOD2BConverter(), orgUnitGateway);
+        ExecutorService exportService = Executors.newFixedThreadPool(2, new NameableThreadFactory("XLSX Export"));
+        Scheduler exportScheduler = Schedulers.from(exportService, true, true);
+
+        AuthenticationUseCaseFactory authUCFactory = new AuthenticationUseCaseFactoryImpl(userGateway, new UserLoginB2DConverter(), tokenGenerator, tokenValidator, new UserDTOD2BConverter(), organizationGateway);
         TransactionUseCaseFactory transactionUCFactory = new TransactionUseCaseFactoryImpl(transactionGateway, new TransactionD2BConverter(), new TransactionUpsertB2DConverter());
         AutomaticTransactionUseCaseFactory automaticTransactionUCFactory = new AutomaticTransactionUseCaseFactoryImpl(automaticTransactionGateway, new AutomaticTransactionD2BConverter(), new AutomaticTransactionB2DConverter());
-        OrganizationUseCaseFactory organizationUseCaseFactory = new OrganizationUseCaseFactoryImpl(organizationGateway, new OrganizationD2BConverter(), new OrganizationB2DConverter(), new OrganizationCreateB2DConverter(), new OrgUnitD2BConverter());
+        OrganizationUseCaseFactory organizationUseCaseFactory = new OrganizationUseCaseFactoryImpl(organizationGateway, new OrganizationD2BConverter(), new OrganizationB2DConverter(), new OrganizationCreateB2DConverter(), new OrgUnitD2BConverter(), transactionGateway, new TransactionD2BConverter());
         OrgUnitUseCaseFactory orgUnitUseCaseFactory = new OrgUnitUseCaseFactoryImpl(orgUnitGateway, new OrgUnitD2BConverter(), new OrgUnitB2DConverter());
         UserUseCaseFactory userUseCaseFactory = new UserUseCaseFactoryImpl(userGateway, new UserDTOD2BConverter(), new UserDTOB2DConverter(), new UserCreateB2DConverter());
+        ExportUseCaseFactory exportUseCaseFactory = new ExportUseCaseFactoryImpl(exportScheduler, exportGateway, transactionGateway);
+        InvitationUseCaseFactory invitationUseCaseFactory = new InvitationUseCaseFactoryImpl(invitationGateway, new InvitationD2BConverter(), new InvitationB2DConverter());
 
         AutomaticProcessUseCaseFactory automaticProcessUseCaseFactory = new AutomaticProcessUseCaseFactoryImpl(
                 Schedulers.from(Executors.newFixedThreadPool(1, new NameableThreadFactory("AutomaticTransactionsProcessor"))),
@@ -99,7 +107,9 @@ public class Main {
                 automaticTransactionUCFactory,
                 organizationUseCaseFactory,
                 orgUnitUseCaseFactory,
-                userUseCaseFactory
+                userUseCaseFactory,
+                exportUseCaseFactory,
+                invitationUseCaseFactory
         );
         appBuilder.build();
     }

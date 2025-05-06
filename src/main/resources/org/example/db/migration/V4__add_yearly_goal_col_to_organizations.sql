@@ -1,0 +1,2 @@
+ALTER TABLE organizations
+    ADD COLUMN yearly_goal NUMERIC(10,2) NOT NULL DEFAULT 150000;

@@ -1,11 +1,9 @@
-package org.example.usecase;
+package org.example.route;
 
 import io.reactivex.rxjava3.core.Completable;
 import org.example.exception.JavalinExceptionHandler;
 import org.example.factory.AuthenticationUseCaseFactory;
 import org.example.factory.AutomaticTransactionUseCaseFactory;
-import org.example.route.RequestWrapper;
-import org.example.route.WithoutResponseBodyRoute;
 import org.example.serialization.json.JsonSerializer;
 
 import java.util.UUID;

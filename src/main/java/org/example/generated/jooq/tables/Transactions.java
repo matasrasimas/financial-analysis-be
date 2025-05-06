@@ -14,6 +14,7 @@ import java.util.UUID;
 import org.example.generated.jooq.DefaultSchema;
 import org.example.generated.jooq.Keys;
 import org.example.generated.jooq.tables.OrgUnits.OrgUnitsPath;
+import org.example.generated.jooq.tables.Users.UsersPath;
 import org.example.generated.jooq.tables.records.TransactionsRecord;
 import org.jooq.Condition;
 import org.jooq.Field;
@@ -88,6 +89,16 @@ public class Transactions extends TableImpl<TransactionsRecord> {
      */
     public final TableField<TransactionsRecord, LocalDate> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATE.nullable(false), this, "");
 
+    /**
+     * The column <code>transactions.is_locked</code>.
+     */
+    public final TableField<TransactionsRecord, Boolean> IS_LOCKED = createField(DSL.name("is_locked"), SQLDataType.BOOLEAN.nullable(false).defaultValue(DSL.field(DSL.raw("false"), SQLDataType.BOOLEAN)), this, "");
+
+    /**
+     * The column <code>transactions.user_id</code>.
+     */
+    public final TableField<TransactionsRecord, UUID> USER_ID = createField(DSL.name("user_id"), SQLDataType.UUID.defaultValue(DSL.field(DSL.raw("'d13dbc3d-c887-4c67-9493-e9db47d4d1e6'::uuid"), SQLDataType.UUID)), this, "");
+
     private Transactions(Name alias, Table<TransactionsRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
     }
@@ -160,7 +171,7 @@ public class Transactions extends TableImpl<TransactionsRecord> {
 
     @Override
     public List<ForeignKey<TransactionsRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.TRANSACTIONS__TRANSACTIONS_ORG_UNIT_ID_FKEY);
+        return Arrays.asList(Keys.TRANSACTIONS__TRANSACTIONS_ORG_UNIT_ID_FKEY, Keys.TRANSACTIONS__FK_TRANSACTIONS_USER);
     }
 
     private transient OrgUnitsPath _orgUnits;
@@ -173,6 +184,18 @@ public class Transactions extends TableImpl<TransactionsRecord> {
             _orgUnits = new OrgUnitsPath(this, Keys.TRANSACTIONS__TRANSACTIONS_ORG_UNIT_ID_FKEY, null);
 
         return _orgUnits;
+    }
+
+    private transient UsersPath _users;
+
+    /**
+     * Get the implicit join path to the <code>public.users</code> table.
+     */
+    public UsersPath users() {
+        if (_users == null)
+            _users = new UsersPath(this, Keys.TRANSACTIONS__FK_TRANSACTIONS_USER, null);
+
+        return _users;
     }
 
     @Override

@@ -14,7 +14,8 @@ public class OrganizationR2BConverter extends Converter<RestOrganization, Bounda
                 UUID.fromString(input.userId()),
                 input.title(),
                 Optional.ofNullable(input.code()),
-                Optional.ofNullable(input.address())
+                Optional.ofNullable(input.address()),
+                input.yearlyGoal()
         );
     }
 }

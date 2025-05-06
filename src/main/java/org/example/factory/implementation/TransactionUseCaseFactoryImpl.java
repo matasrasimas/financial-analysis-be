@@ -44,4 +44,9 @@ public class TransactionUseCaseFactoryImpl implements TransactionUseCaseFactory 
     public GenerateTransactionsFromFileUseCase createGenerateTransactionsFromFileUseCase() {
         return new GenerateTransactionsFromFileInteractor();
     }
+
+    @Override
+    public RetrieveOrganizationTransactionsUseCase createRetrieveOrganizationTransactionsUseCase() {
+        return new RetrieveOrganizationTransactionsInteractor(transactionGateway, transactionD2BConverter);
+    }
 }

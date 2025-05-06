@@ -1,11 +1,9 @@
 package org.example.factory.implementation;
 
-import org.example.converter.OrgUnitD2BConverter;
-import org.example.converter.OrganizationB2DConverter;
-import org.example.converter.OrganizationCreateB2DConverter;
-import org.example.converter.OrganizationD2BConverter;
+import org.example.converter.*;
 import org.example.factory.OrganizationUseCaseFactory;
 import org.example.gateway.OrganizationGateway;
+import org.example.gateway.TransactionGateway;
 import org.example.usecase.*;
 import org.example.usecase.implementation.*;
 
@@ -15,17 +13,23 @@ public class OrganizationUseCaseFactoryImpl implements OrganizationUseCaseFactor
     private final OrganizationB2DConverter organizationB2DConverter;
     private final OrganizationCreateB2DConverter organizationCreateB2DConverter;
     private final OrgUnitD2BConverter orgUnitD2BConverter;
+    private final TransactionGateway transactionGateway;
+    private final TransactionD2BConverter transactionD2BConverter;
 
     public OrganizationUseCaseFactoryImpl(OrganizationGateway organizationGateway,
                                           OrganizationD2BConverter organizationD2BConverter,
                                           OrganizationB2DConverter organizationB2DConverter,
                                           OrganizationCreateB2DConverter organizationCreateB2DConverter,
-                                          OrgUnitD2BConverter orgUnitD2BConverter) {
+                                          OrgUnitD2BConverter orgUnitD2BConverter,
+                                          TransactionGateway transactionGateway,
+                                          TransactionD2BConverter transactionD2BConverter) {
         this.organizationGateway = organizationGateway;
         this.organizationD2BConverter = organizationD2BConverter;
         this.organizationB2DConverter = organizationB2DConverter;
         this.organizationCreateB2DConverter = organizationCreateB2DConverter;
         this.orgUnitD2BConverter = orgUnitD2BConverter;
+        this.transactionGateway = transactionGateway;
+        this.transactionD2BConverter = transactionD2BConverter;
     }
 
     @Override
@@ -34,13 +38,13 @@ public class OrganizationUseCaseFactoryImpl implements OrganizationUseCaseFactor
     }
 
     @Override
-    public RetrieveUserOrganizationUseCase createRetrieveUserOrganizationUseCase() {
-        return new RetrieveUserOrganizationInteractor(organizationGateway, organizationD2BConverter);
+    public RetrieveUserOrganizationsUseCase createRetrieveUserOrganizationsUseCase() {
+        return new RetrieveUserOrganizationsInteractor(organizationGateway, organizationD2BConverter);
     }
 
     @Override
     public CreateOrganizationUseCase createCreateOrganizationUseCase() {
-        return new CreateOrganizationInteractor(organizationGateway, organizationCreateB2DConverter, orgUnitD2BConverter);
+        return new CreateOrganizationInteractor(organizationGateway, organizationCreateB2DConverter, organizationD2BConverter);
     }
 
     @Override
@@ -51,5 +55,10 @@ public class OrganizationUseCaseFactoryImpl implements OrganizationUseCaseFactor
     @Override
     public DeleteOrganizationUseCase createDeleteOrganizationUseCase() {
         return new DeleteOrganizationInteractor(organizationGateway);
+    }
+
+    @Override
+    public RetrieveStatisticsUseCase createRetrieveStatisticsUseCase() {
+        return new RetrieveStatisticsInteractor(transactionGateway, transactionD2BConverter, organizationGateway);
     }
 }

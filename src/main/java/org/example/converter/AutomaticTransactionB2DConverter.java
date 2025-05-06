@@ -13,7 +13,8 @@ public class AutomaticTransactionB2DConverter extends  Converter<BoundaryAutomat
                 input.title(),
                 input.description(),
                 input.duration(),
-                AutomaticTransaction.DurationUnit.valueOf(input.durationUnit())
+                AutomaticTransaction.DurationUnit.valueOf(input.durationUnit()),
+                input.nextTransactionDate()
         );
     }
 }

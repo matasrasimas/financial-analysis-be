@@ -4,49 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d6a2b2-f7b5-42f7-886a-5036e179407f" name="Changes" comment="init project">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/NameableThreadFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/OrganizationCreateB2DConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/OrganizationCreateR2BConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/TransactionFromFileB2RConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/TransactionFromFileD2BConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/FileType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/AutomaticProcessUseCaseFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/AutomaticProcessUseCaseFactoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryLoginMetadata.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryOrganizationCreate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryTransactionFromFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/domain/OrganizationCreate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/domain/TransactionFromFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestLoginMetadata.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestOrganizationCreate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestTransactionFromFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/AuthenticateUserRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/CreateOrganizationRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/GenerateTransactionsFromFileRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveOrgUnitAutomaticTransactionsRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveOrgUnitByIdRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveOrgUnitTransactionsRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveOrganizationOrgUnitsRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveUserOrganizationRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/CreateOrganizationUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/GenerateTransactionsFromFileUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/ProcessAutomaticTransactionsUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveOrgUnitAutomaticTransactionsUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveOrgUnitByIdUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveOrgUnitTransactionsUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveOrganizationOrgUnitsUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveUserOrganizationUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/UpsertTransactionsUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/CreateOrganizationInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/GenerateTransactionsFromFileInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/ProcessAutomaticTransactionsInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveOrgUnitAutomaticTransactionsInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveOrgUnitByIdInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveOrgUnitTransactionsInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveOrganizationOrgUnitsInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveUserOrganizationInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/UpsertTransactionsInteractor.java" afterDir="false" />
+    <list default="true" id="e0d6a2b2-f7b5-42f7-886a-5036e179407f" name="Changes" comment="very important features">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/InvitationB2DConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/InvitationB2RConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/InvitationD2BConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/InvitationR2BConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/StatisticsB2RConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/ExportUseCaseFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/InvitationUseCaseFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/ExportUseCaseFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/InvitationUseCaseFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/ExportGateway.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/InvitationGateway.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresInvitationGateway.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/xlsx/XlsxExportGateway.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryInvitation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/domain/Invitation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/domain/TransactionsReportRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestInvitation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/DeleteInvitationRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/ExportOrgUnitTransactionsRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveInvitationsByOrgIdRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveOrganizationTransactionsRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveReceivedInvitationsRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveSentInvitationsRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveStatisticsRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RxUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/UpsertInvitationRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/route/XlsxRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/DeleteInvitationUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/ExportOrgUnitTransactionsUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveInvitationsByOrgIdUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveOrganizationTransactionsUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveReceivedInvitationsUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveSentInvitationsUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveStatisticsUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/UpsertInvitationUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/DeleteInvitationInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/ExportOrgUnitTransactionsInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveInvitationsByOrgIdInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveOrganizationTransactionsInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveReceivedInvitationsInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveSentInvitationsInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveStatisticsInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/UpsertInvitationInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/db/migration/V2__add_cols_to_transactions.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/db/migration/V3__invitations_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/db/migration/V4__add_yearly_goal_col_to_organizations.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AppBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AppBuilder.java" afterDir="false" />
@@ -56,7 +63,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/AutomaticTransactionB2RConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/AutomaticTransactionB2RConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/AutomaticTransactionD2BConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/AutomaticTransactionD2BConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/AutomaticTransactionR2BConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/AutomaticTransactionR2BConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/OrgUnitR2BConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/OrgUnitR2BConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/OrganizationB2DConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/OrganizationB2DConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/OrganizationB2RConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/OrganizationB2RConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/OrganizationD2BConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/OrganizationD2BConverter.java" afterDir="false" />
@@ -65,35 +71,27 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/TransactionD2BConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/TransactionD2BConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/TransactionUpsertB2DConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/TransactionUpsertB2DConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/converter/TransactionUpsertR2BConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/converter/TransactionUpsertR2BConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/AutomaticTransactionUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/AutomaticTransactionUseCaseFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/LoginUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/LoginUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/OrgUnitUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/OrgUnitUseCaseFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/OrganizationUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/OrganizationUseCaseFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/TransactionUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/TransactionUseCaseFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/AuthenticationUseCaseFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/AuthenticationUseCaseFactoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/AutomaticTransactionUseCaseFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/AutomaticTransactionUseCaseFactoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/LoginInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/LoginInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/OrgUnitUseCaseFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/OrgUnitUseCaseFactoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/OrganizationUseCaseFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/OrganizationUseCaseFactoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/TransactionUseCaseFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/TransactionUseCaseFactoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gateway/AutomaticTransactionGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/AutomaticTransactionGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gateway/OrgUnitGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/OrgUnitGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gateway/OrganizationGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/OrganizationGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gateway/TransactionGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/TransactionGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresAutomaticTransactionGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresAutomaticTransactionGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresOrgUnitGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresOrgUnitGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresOrganizationGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresOrganizationGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresTransactionGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresTransactionGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/DefaultSchema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/DefaultSchema.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/Keys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/Keys.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/AutomaticTransactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/AutomaticTransactions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/OrgUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/OrgUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/Tables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/Tables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/Organizations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/Organizations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/Transactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/Transactions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/records/AutomaticTransactionsRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/records/AutomaticTransactionsRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/records/OrganizationsRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/records/OrganizationsRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/records/TransactionsRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/generated/jooq/tables/records/TransactionsRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryAutomaticTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryAutomaticTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryLoginMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryLoginMetadata.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryOrganization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryOrganization.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryTransaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryTransactionUpsert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/boundary/BoundaryTransactionUpsert.java" afterDir="false" />
@@ -105,23 +103,16 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestOrganization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestOrganization.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestTransaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestTransactionUpsert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestTransactionUpsert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rest/RestUserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/LoginRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/LoginRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/BaseRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/BaseRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/CreateOrganizationRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/CreateOrganizationRoute.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/RequestWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RequestWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveUsersRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveUsersRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/UpsertAutomaticTransactionRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/UpsertAutomaticTransactionRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/UpsertOrganizationRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/UpdateOrganizationRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/UpsertTransactionRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/UpsertTransactionsRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveUsersUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveUsersUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/UpsertAutomaticTransactionUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/UpsertAutomaticTransactionUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/UpsertOrganizationUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/UpdateOrganizationUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/UpsertTransactionUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/JwtGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/JwtGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveUsersInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveUsersInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/UpsertAutomaticTransactionInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/UpsertAutomaticTransactionInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/UpsertOrganizationInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/UpdateOrganizationInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/UpsertTransactionInteractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/db/migration/V1__init_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/db/migration/V1__init_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveUserOrganizationRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/RetrieveUserOrganizationsRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/CreateOrganizationUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/CreateOrganizationUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/DeleteAutomaticTransactionRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/route/DeleteAutomaticTransactionRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveUserOrganizationUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/RetrieveUserOrganizationsUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/CreateOrganizationInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/CreateOrganizationInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/ProcessAutomaticTransactionsInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/ProcessAutomaticTransactionsInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveUserOrganizationInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveUserOrganizationsInteractor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,9 +145,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -183,26 +174,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ACTIVE_CLOUD_PROJECT_ACCOUNT&quot;: &quot;matasra2002@gmail.com&quot;,
-    &quot;ACTIVE_CLOUD_PROJECT_ID&quot;: &quot;unique-axle-456610-d5&quot;,
-    &quot;ACTIVE_CLOUD_PROJECT_NAME&quot;: &quot;Financial analysis system&quot;,
-    &quot;ACTIVE_CLOUD_PROJECT_NUMBER&quot;: &quot;165991968278&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.Build financial-analysis-be.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.financial-analysis-be [:org.example.JOOQCodeGenerator.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.financial-analysis-be [:org.example.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.financial-analysis-be [dependencies].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.lopas [:org.example.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.google.cloudcode.ide_session_index&quot;: &quot;20250416_0001&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/matas/OneDrive/Desktop/financial-analysis-be&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ACTIVE_CLOUD_PROJECT_ACCOUNT": "matasra2002@gmail.com",
+    "ACTIVE_CLOUD_PROJECT_ID": "unique-axle-456610-d5",
+    "ACTIVE_CLOUD_PROJECT_NAME": "Financial analysis system",
+    "ACTIVE_CLOUD_PROJECT_NUMBER": "165991968278",
+    "Application.Main.executor": "Run",
+    "Gradle.Build financial-analysis-be.executor": "Run",
+    "Gradle.financial-analysis-be [:org.example.JOOQCodeGenerator.main()].executor": "Run",
+    "Gradle.financial-analysis-be [:org.example.Main.main()].executor": "Run",
+    "Gradle.financial-analysis-be [dependencies].executor": "Run",
+    "Gradle.lopas [:org.example.Main.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.google.cloudcode.ide_session_index": "20250505_0003",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/matas/OneDrive/Desktop/financial-analysis-be",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="JOOQCodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.JOOQCodeGenerator" />
@@ -256,9 +250,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.financial-analysis-be [dependencies]" />
         <item itemvalue="Application.JOOQCodeGenerator" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +272,14 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1743533790080</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="very important features">
+      <option name="closed" value="true" />
+      <created>1744839280253</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1744839280253</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -294,16 +295,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init project" />
-    <option name="LAST_COMMIT_MESSAGE" value="init project" />
+    <MESSAGE value="very important features" />
+    <option name="LAST_COMMIT_MESSAGE" value="very important features" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/route/RetrieveTransactionsRoute.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresUserGateway.java</url>
           <line>40</line>
@@ -346,18 +343,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresOrganizationGateway.java</url>
-          <line>74</line>
+          <line>77</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/route/UpsertOrgUnitRoute.java</url>
           <line>27</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/route/UpsertTransactionsRoute.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/route/UpsertTransactionsRoute.java</url>
@@ -378,6 +370,44 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/route/RetrieveOrgUnitTransactionsRoute.java</url>
           <line>41</line>
           <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/route/XlsxRoute.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/gateway/xlsx/XlsxExportGateway.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/route/RequestWrapper.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/UpsertTransactionsInteractor.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresTransactionGateway.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/gateway/postgres/PostgresTransactionGateway.java</url>
+          <line>99</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/converter/TransactionB2RConverter.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

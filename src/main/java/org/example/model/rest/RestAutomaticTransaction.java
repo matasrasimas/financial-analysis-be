@@ -8,5 +8,6 @@ public record RestAutomaticTransaction(@JsonProperty("id") String id,
                                        @JsonProperty(required = true, value = "title") String title,
                                        @JsonProperty("description") String description,
                                        @JsonProperty(required = true, value = "duration") int duration,
-                                       @JsonProperty(required = true, value = "durationUnit") String durationUnit) {
+                                       @JsonProperty(required = true, value = "durationUnit") String durationUnit,
+                                       @JsonProperty("nextTransactionDate") String nextTransactionDate) {
 }

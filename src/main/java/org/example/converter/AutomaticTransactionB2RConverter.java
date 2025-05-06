@@ -13,9 +13,8 @@ public class AutomaticTransactionB2RConverter extends Converter<BoundaryAutomati
                 input.title(),
                 input.description().orElse(null),
                 input.duration(),
-                input.durationUnit()
-
-
+                input.durationUnit(),
+                input.nextTransactionDate()
         );
     }
 }

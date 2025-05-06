@@ -4,8 +4,9 @@ import org.example.usecase.*;
 
 public interface OrganizationUseCaseFactory {
     RetrieveOrganizationsUseCase createRetrieveOrganizationsUseCase();
-    RetrieveUserOrganizationUseCase createRetrieveUserOrganizationUseCase();
+    RetrieveUserOrganizationsUseCase createRetrieveUserOrganizationsUseCase();
     CreateOrganizationUseCase createCreateOrganizationUseCase();
     UpdateOrganizationUseCase createUpdateOrganizationUseCase();
     DeleteOrganizationUseCase createDeleteOrganizationUseCase();
+    RetrieveStatisticsUseCase createRetrieveStatisticsUseCase();
 }

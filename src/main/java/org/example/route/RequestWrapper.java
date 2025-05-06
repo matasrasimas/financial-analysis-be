@@ -98,7 +98,7 @@ public class RequestWrapper {
     }
 
     public String getStringPathParam(String key) {
-        String param = context.pathParamMap().get(key); //TODO pathParam() is fucks up in tests, so map is used for now
+        String param = context.pathParamMap().get(key);
         return Optional.ofNullable(param)
                 .filter(value -> !value.isBlank())
                 .orElseThrow(() -> new InvalidParamException("Invalid param exception"));

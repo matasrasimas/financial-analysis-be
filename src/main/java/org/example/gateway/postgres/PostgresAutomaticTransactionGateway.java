@@ -8,6 +8,7 @@ import org.jooq.DSLContext;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -16,6 +17,7 @@ import java.util.UUID;
 import static org.example.generated.jooq.Tables.AUTOMATIC_TRANSACTIONS;
 
 public class PostgresAutomaticTransactionGateway implements AutomaticTransactionGateway {
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private final DSLContext dslContext;
 
     public PostgresAutomaticTransactionGateway(DSLContext dslContext) {
@@ -89,6 +91,11 @@ public class PostgresAutomaticTransactionGateway implements AutomaticTransaction
     }
 
     private AutomaticTransaction buildAutomaticTransaction(AutomaticTransactionsRecord record) {
+        long durationMinutes = switch (record.getDurationUnit()) {
+            case MINUTES -> record.getDuration();
+            case HOURS -> record.getDuration() * 60;
+            case DAYS -> record.getDuration() * 1440;
+        };
         return new AutomaticTransaction(
                 record.getId(),
                 record.getOrgUnitId(),
@@ -96,7 +103,8 @@ public class PostgresAutomaticTransactionGateway implements AutomaticTransaction
                 record.getTitle(),
                 Optional.ofNullable(record.getDescription()),
                 record.getDuration(),
-                mapToDurationUnit(record.getDurationUnit())
+                mapToDurationUnit(record.getDurationUnit()),
+                record.getLatestTransactionDate().plusMinutes(durationMinutes).format(DATE_FORMATTER)
         );
     }
 
@@ -115,4 +123,6 @@ public class PostgresAutomaticTransactionGateway implements AutomaticTransaction
             case DAYS -> DurationEnum.DAYS;
         };
     }
+
+
 }

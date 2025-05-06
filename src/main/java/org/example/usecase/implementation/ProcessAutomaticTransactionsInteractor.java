@@ -62,10 +62,11 @@ public class ProcessAutomaticTransactionsInteractor implements ProcessAutomaticT
         return new TransactionUpsert(
                 UUID.randomUUID(),
                 input.orgUnitId(),
+                null,
                 input.amount(),
                 input.title(),
-                input.description(),
-                LocalDate.now()
+                LocalDate.now(),
+                false
         );
     }
 }

@@ -6,7 +6,7 @@ import org.example.exception.JavalinExceptionHandler;
 import org.example.factory.*;
 import org.example.route.*;
 import org.example.serialization.json.JsonSerializer;
-import org.example.usecase.DeleteAutomaticTransactionRoute;
+import org.example.route.DeleteAutomaticTransactionRoute;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 import static org.example.common.RouteConstants.*;
@@ -20,6 +20,8 @@ public class AppBuilder {
     private final OrganizationUseCaseFactory organizationUCFactory;
     private final OrgUnitUseCaseFactory orgUnitUCFactory;
     private final UserUseCaseFactory userUCFactory;
+    private final ExportUseCaseFactory exportUseCaseFactory;
+    private final InvitationUseCaseFactory invitationUseCaseFactory;
 
     public AppBuilder(AuthenticationUseCaseFactory authUCFactory,
                       TransactionUseCaseFactory transactionUCFactory,
@@ -28,7 +30,9 @@ public class AppBuilder {
                       AutomaticTransactionUseCaseFactory automaticTransactionUCFactory,
                       OrganizationUseCaseFactory organizationUCFactory,
                       OrgUnitUseCaseFactory orgUnitUCFactory,
-                      UserUseCaseFactory userUCFactory) {
+                      UserUseCaseFactory userUCFactory,
+                      ExportUseCaseFactory exportUseCaseFactory,
+                      InvitationUseCaseFactory invitationUseCaseFactory) {
         this.authUCFactory = authUCFactory;
         this.transactionUCFactory = transactionUCFactory;
         this.jsonSerializer = jsonSerializer;
@@ -37,6 +41,8 @@ public class AppBuilder {
         this.organizationUCFactory = organizationUCFactory;
         this.orgUnitUCFactory = orgUnitUCFactory;
         this.userUCFactory = userUCFactory;
+        this.exportUseCaseFactory = exportUseCaseFactory;
+        this.invitationUseCaseFactory = invitationUseCaseFactory;
     }
 
     public Javalin build() {
@@ -62,6 +68,12 @@ public class AppBuilder {
         path(ORGANIZATIONS_PATH, this::createOrganizationsRoutes);
         path(ORG_UNITS_PATH, this::createOrgUnitsRoutes);
         path(USERS_PATH, this::createUsersRoutes);
+        path(INVITATIONS_PATH, this::createInvitationsRoutes);
+    }
+
+    private void createInvitationsRoutes() {
+        post(new UpsertInvitationRoute(authUCFactory, jsonSerializer, exceptionHandler, invitationUseCaseFactory, new InvitationR2BConverter(), new InvitationB2RConverter()));
+        delete(INVITATION_ID_PATH_PARAM, new DeleteInvitationRoute(authUCFactory, jsonSerializer, exceptionHandler, invitationUseCaseFactory));
     }
 
     private void createTransactionsRoutes() {
@@ -83,14 +95,17 @@ public class AppBuilder {
 
     private void createOrganizationsRoutes() {
         get(new RetrieveOrganizationsRoute(authUCFactory, organizationUCFactory, jsonSerializer, new OrganizationB2RConverter(), exceptionHandler));
-        post(new CreateOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationCreateR2BConverter(), new OrgUnitB2RConverter()));
+        post(new CreateOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationCreateR2BConverter(), new OrganizationB2RConverter()));
         put(new UpdateOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationR2BConverter()));
         path(ORGANIZATION_ID_PATH_PARAM, this::createOrganizationIdRoutes);
     }
 
     private void createOrganizationIdRoutes() {
         get(ORG_UNITS_PATH, new RetrieveOrganizationOrgUnitsRoute(authUCFactory, jsonSerializer, exceptionHandler, orgUnitUCFactory, new OrgUnitB2RConverter()));
+        get(INVITATIONS_PATH, new RetrieveInvitationsByOrgIdRoute(authUCFactory, jsonSerializer, exceptionHandler, invitationUseCaseFactory, new InvitationB2RConverter()));
         delete(new DeleteOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory));
+        get(STATISTICS_PATH, new RetrieveStatisticsRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new StatisticsB2RConverter(new TransactionB2RConverter())));
+        get(TRANSACTIONS_PATH, new RetrieveOrganizationTransactionsRoute(authUCFactory, jsonSerializer, exceptionHandler, transactionUCFactory, new TransactionB2RConverter()));
     }
 
     private void createOrgUnitsRoutes() {
@@ -103,6 +118,7 @@ public class AppBuilder {
         get(new RetrieveOrgUnitByIdRoute(authUCFactory, jsonSerializer, exceptionHandler, orgUnitUCFactory, new OrgUnitB2RConverter()));
         get(TRANSACTIONS_PATH, new RetrieveOrgUnitTransactionsRoute(authUCFactory, jsonSerializer, exceptionHandler, transactionUCFactory, new TransactionB2RConverter()));
         get(AUTOMATIC_TRANSACTIONS_PATH, new RetrieveOrgUnitAutomaticTransactionsRoute(authUCFactory, jsonSerializer, exceptionHandler, automaticTransactionUCFactory, new AutomaticTransactionB2RConverter()));
+        get(EXPORT_PATH, new ExportOrgUnitTransactionsRoute(authUCFactory, exportUseCaseFactory, jsonSerializer, exceptionHandler));
         delete(new DeleteOrgUnitRoute(authUCFactory, jsonSerializer, exceptionHandler, orgUnitUCFactory));
     }
 
@@ -114,7 +130,9 @@ public class AppBuilder {
     }
 
     private void createUserIdRoutes() {
-        get(ORGANIZATIONS_PATH, new RetrieveUserOrganizationRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationB2RConverter()));
+        get(ORGANIZATIONS_PATH, new RetrieveUserOrganizationsRoute(authUCFactory, jsonSerializer, exceptionHandler, organizationUCFactory, new OrganizationB2RConverter()));
+        get(SENT_INVITATIONS_PATH, new RetrieveSentInvitationsRoute(authUCFactory, jsonSerializer, exceptionHandler, invitationUseCaseFactory, new InvitationB2RConverter()));
+        get(RECEIVED_INVITATIONS_PATH, new RetrieveReceivedInvitationsRoute(authUCFactory, jsonSerializer, exceptionHandler, invitationUseCaseFactory, new InvitationB2RConverter()));
         delete(new DeleteUserRoute(authUCFactory, jsonSerializer, exceptionHandler, userUCFactory));
     }
 }

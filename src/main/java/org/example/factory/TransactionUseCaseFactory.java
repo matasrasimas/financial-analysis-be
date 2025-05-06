@@ -8,4 +8,5 @@ public interface TransactionUseCaseFactory {
     UpsertTransactionsUseCase createUpsertTransactionsUseCase();
     DeleteTransactionUseCase createDeleteTransactionUseCase();
     GenerateTransactionsFromFileUseCase createGenerateTransactionsFromFileUseCase();
+    RetrieveOrganizationTransactionsUseCase createRetrieveOrganizationTransactionsUseCase();
 }

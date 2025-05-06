@@ -11,7 +11,8 @@ public class OrganizationB2RConverter extends Converter<BoundaryOrganization, Re
                 input.userId().toString(),
                 input.title(),
                 input.code().orElse(null),
-                input.address().orElse(null)
+                input.address().orElse(null),
+                input.yearlyGoal()
         );
     }
 }

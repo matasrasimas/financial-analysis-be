@@ -4,6 +4,7 @@
 package org.example.generated.jooq.tables.records;
 
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import org.example.generated.jooq.tables.Organizations;
@@ -89,6 +90,20 @@ public class OrganizationsRecord extends UpdatableRecordImpl<OrganizationsRecord
         return (String) get(4);
     }
 
+    /**
+     * Setter for <code>organizations.yearly_goal</code>.
+     */
+    public void setYearlyGoal(BigDecimal value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>organizations.yearly_goal</code>.
+     */
+    public BigDecimal getYearlyGoal() {
+        return (BigDecimal) get(5);
+    }
+
     // -------------------------------------------------------------------------
     // Primary key information
     // -------------------------------------------------------------------------
@@ -112,7 +127,7 @@ public class OrganizationsRecord extends UpdatableRecordImpl<OrganizationsRecord
     /**
      * Create a detached, initialised OrganizationsRecord
      */
-    public OrganizationsRecord(UUID id, UUID userId, String title, String code, String address) {
+    public OrganizationsRecord(UUID id, UUID userId, String title, String code, String address, BigDecimal yearlyGoal) {
         super(Organizations.ORGANIZATIONS);
 
         setId(id);
@@ -120,6 +135,7 @@ public class OrganizationsRecord extends UpdatableRecordImpl<OrganizationsRecord
         setTitle(title);
         setCode(code);
         setAddress(address);
+        setYearlyGoal(yearlyGoal);
         resetChangedOnNotNull();
     }
 }

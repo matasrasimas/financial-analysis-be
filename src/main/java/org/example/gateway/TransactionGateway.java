@@ -11,6 +11,8 @@ import java.util.UUID;
 public interface TransactionGateway {
     List<Transaction> retrieve();
     List<Transaction> retrieveByOrgUnitId(UUID orgUnitId, LocalDate from, LocalDate to);
+    List<Transaction> retrieveByOrgId(UUID orgId);
+    List<Transaction> retrieveByOrgIdAndDate(UUID orgId, LocalDate from, LocalDate to);
     Optional<Transaction> retrieveById(UUID id);
     Transaction upsert(TransactionUpsert input);
     List<Transaction> upsert(List<TransactionUpsert> input);

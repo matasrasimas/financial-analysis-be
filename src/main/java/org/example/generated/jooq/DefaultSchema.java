@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.example.generated.jooq.tables.AutomaticTransactions;
 import org.example.generated.jooq.tables.FlywaySchemaHistory;
+import org.example.generated.jooq.tables.Invitations;
 import org.example.generated.jooq.tables.OrgUnits;
 import org.example.generated.jooq.tables.Organizations;
 import org.example.generated.jooq.tables.Transactions;
@@ -40,6 +41,11 @@ public class DefaultSchema extends SchemaImpl {
      * The table <code>flyway_schema_history</code>.
      */
     public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
+
+    /**
+     * The table <code>invitations</code>.
+     */
+    public final Invitations INVITATIONS = Invitations.INVITATIONS;
 
     /**
      * The table <code>org_units</code>.
@@ -79,6 +85,7 @@ public class DefaultSchema extends SchemaImpl {
         return Arrays.asList(
             AutomaticTransactions.AUTOMATIC_TRANSACTIONS,
             FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY,
+            Invitations.INVITATIONS,
             OrgUnits.ORG_UNITS,
             Organizations.ORGANIZATIONS,
             Transactions.TRANSACTIONS,

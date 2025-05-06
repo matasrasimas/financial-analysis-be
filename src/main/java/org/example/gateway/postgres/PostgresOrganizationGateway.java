@@ -7,6 +7,7 @@ import org.example.model.domain.Organization;
 import org.example.model.domain.OrganizationCreate;
 import org.jooq.DSLContext;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -35,14 +36,14 @@ public class PostgresOrganizationGateway implements OrganizationGateway {
     }
 
     @Override
-    public Optional<Organization> retrieveByUserId(UUID userId) {
+    public List<Organization> retrieveByUserId(UUID userId) {
         return dslContext.selectFrom(ORGANIZATIONS)
                 .where(ORGANIZATIONS.USER_ID.eq(userId))
-                .fetchOptional(this::buildOrganization);
+                .fetch(this::buildOrganization);
     }
 
     @Override
-    public OrgUnit create(UUID userId, OrganizationCreate input) {
+    public Organization create(UUID userId, OrganizationCreate input) {
         UUID orgId = UUID.randomUUID();
         dslContext.insertInto(ORGANIZATIONS)
                 .set(ORGANIZATIONS.ID, orgId)
@@ -50,6 +51,7 @@ public class PostgresOrganizationGateway implements OrganizationGateway {
                 .set(ORGANIZATIONS.TITLE, input.title())
                 .set(ORGANIZATIONS.CODE, input.code().orElse(null))
                 .set(ORGANIZATIONS.ADDRESS, input.address().orElse(null))
+                .set(ORGANIZATIONS.YEARLY_GOAL, BigDecimal.valueOf(1500000))
                 .execute();
 
         UUID orgUnitId = UUID.randomUUID();
@@ -61,12 +63,13 @@ public class PostgresOrganizationGateway implements OrganizationGateway {
                 .set(ORG_UNITS.ADDRESS, input.address().orElse(null))
                 .execute();
 
-        return new OrgUnit(
-                orgUnitId,
+        return new Organization(
                 orgId,
+                userId,
                 input.title(),
                 input.code(),
-                input.address()
+                input.address(),
+                1500000
         );
     }
 
@@ -77,6 +80,7 @@ public class PostgresOrganizationGateway implements OrganizationGateway {
                 .set(ORGANIZATIONS.TITLE, input.title())
                 .set(ORGANIZATIONS.CODE, input.code().orElse(null))
                 .set(ORGANIZATIONS.ADDRESS, input.address().orElse(null))
+                .set(ORGANIZATIONS.YEARLY_GOAL, BigDecimal.valueOf(input.yearlyGoal()))
                 .where(ORGANIZATIONS.ID.eq(input.id()))
                 .execute();
     }
@@ -94,7 +98,8 @@ public class PostgresOrganizationGateway implements OrganizationGateway {
                 record.getUserId(),
                 record.getTitle(),
                 Optional.ofNullable(record.getCode()),
-                Optional.ofNullable(record.getAddress())
+                Optional.ofNullable(record.getAddress()),
+                record.getYearlyGoal().doubleValue()
         );
     }
 }

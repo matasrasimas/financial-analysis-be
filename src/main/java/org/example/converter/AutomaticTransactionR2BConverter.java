@@ -16,7 +16,8 @@ public class AutomaticTransactionR2BConverter extends  Converter<RestAutomaticTr
                 input.title(),
                 Optional.ofNullable(input.description()),
                 input.duration(),
-                input.durationUnit()
+                input.durationUnit(),
+                input.nextTransactionDate()
         );
     }
 }

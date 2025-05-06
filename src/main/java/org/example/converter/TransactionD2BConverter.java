@@ -9,10 +9,11 @@ public class TransactionD2BConverter extends Converter<Transaction, BoundaryTran
         return new BoundaryTransaction(
                 input.id(),
                 input.orgUnitId(),
+                input.userId(),
                 input.amount(),
                 input.title(),
-                input.description(),
-                input.createdAt()
+                input.createdAt(),
+                input.isLocked()
         );
     }
 }

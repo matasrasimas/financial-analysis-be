@@ -42,6 +42,8 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0'
     implementation 'com.google.cloud:google-cloud-vision:3.57.0'
     implementation platform("com.google.cloud:libraries-bom:25.1.0")
+    implementation 'org.jxls:jxls-poi:3.0.0'
+    implementation 'commons-logging:commons-logging:1.2'
 //    implementation("com.google.cloud:com.google.cloud:google-cloud-vision")
 }
 

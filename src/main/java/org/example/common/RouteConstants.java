@@ -22,4 +22,11 @@ public class RouteConstants {
     public static final String FROM = "from";
     public static final String TO = "to";
     public static final String FROM_FILE = "/from-file";
+    public static final String EXPORT_PATH = "/export";
+    public static final String INVITATIONS_PATH = "/invitations";
+    public static final String INVITATION_ID_PATH_PARAM = "/{invitation-id}";
+    public static final String INVITATION_ID = "invitation-id";
+    public static final String SENT_INVITATIONS_PATH = "/sent-invitations";
+    public static final String RECEIVED_INVITATIONS_PATH = "/received-invitations";
+    public static final String STATISTICS_PATH = "/statistics";
 }

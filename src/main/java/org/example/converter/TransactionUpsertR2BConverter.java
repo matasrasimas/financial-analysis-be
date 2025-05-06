@@ -13,10 +13,11 @@ public class TransactionUpsertR2BConverter extends Converter<RestTransactionUpse
         return new BoundaryTransactionUpsert(
                 Optional.ofNullable(input.id()).map(UUID::fromString).orElse(UUID.randomUUID()),
                 UUID.fromString(input.orgUnitId()),
+                UUID.fromString(input.userId()),
                 input.amount(),
                 input.title(),
-                Optional.ofNullable(input.description()),
-                LocalDate.parse(input.createdAt())
+                LocalDate.parse(input.createdAt()),
+                input.isLocked()
         );
     }
 }

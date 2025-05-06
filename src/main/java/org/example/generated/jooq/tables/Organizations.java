@@ -4,6 +4,7 @@
 package org.example.generated.jooq.tables;
 
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.UUID;
 
 import org.example.generated.jooq.DefaultSchema;
 import org.example.generated.jooq.Keys;
+import org.example.generated.jooq.tables.Invitations.InvitationsPath;
 import org.example.generated.jooq.tables.OrgUnits.OrgUnitsPath;
 import org.example.generated.jooq.tables.Users.UsersPath;
 import org.example.generated.jooq.tables.records.OrganizationsRecord;
@@ -81,6 +83,11 @@ public class Organizations extends TableImpl<OrganizationsRecord> {
      * The column <code>organizations.address</code>.
      */
     public final TableField<OrganizationsRecord, String> ADDRESS = createField(DSL.name("address"), SQLDataType.CLOB, this, "");
+
+    /**
+     * The column <code>organizations.yearly_goal</code>.
+     */
+    public final TableField<OrganizationsRecord, BigDecimal> YEARLY_GOAL = createField(DSL.name("yearly_goal"), SQLDataType.NUMERIC(10, 2).nullable(false).defaultValue(DSL.field(DSL.raw("150000"), SQLDataType.NUMERIC)), this, "");
 
     private Organizations(Name alias, Table<OrganizationsRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
@@ -167,6 +174,19 @@ public class Organizations extends TableImpl<OrganizationsRecord> {
             _users = new UsersPath(this, Keys.ORGANIZATIONS__ORGANIZATIONS_USER_ID_FKEY, null);
 
         return _users;
+    }
+
+    private transient InvitationsPath _invitations;
+
+    /**
+     * Get the implicit to-many join path to the <code>public.invitations</code>
+     * table
+     */
+    public InvitationsPath invitations() {
+        if (_invitations == null)
+            _invitations = new InvitationsPath(this, null, Keys.INVITATIONS__INVITATIONS_ORGANIZATION_ID_FKEY.getInverseKey());
+
+        return _invitations;
     }
 
     private transient OrgUnitsPath _orgUnits;

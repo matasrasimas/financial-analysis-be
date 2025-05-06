@@ -6,5 +6,6 @@ public record RestOrganization(@JsonProperty(required = true, value = "id") Stri
                                @JsonProperty(required = true, value = "userId") String userId,
                                @JsonProperty(required = true, value = "title") String title,
                                @JsonProperty("code") String code,
-                               @JsonProperty("address") String address) {
+                               @JsonProperty("address") String address,
+                               @JsonProperty("yearlyGoal") double yearlyGoal) {
 }

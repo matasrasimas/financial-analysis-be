@@ -9,7 +9,8 @@ public record AutomaticTransaction(UUID id,
                                    String title,
                                    Optional<String> description,
                                    int duration,
-                                   DurationUnit durationUnit) {
+                                   DurationUnit durationUnit,
+                                   String nextTransactionDate) {
 
     public enum DurationUnit {
         MINUTES,

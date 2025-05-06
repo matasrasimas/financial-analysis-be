@@ -48,6 +48,10 @@ public abstract class BaseRoute<I, O> implements Handler {
         }
     }
 
+    protected void handleException(Context ctx, Throwable throwable) {
+        exceptionHandler.handle(throwable, ctx);
+    }
+
     protected abstract Single<I> process(RequestWrapper request);
 
     @SuppressWarnings("unused")

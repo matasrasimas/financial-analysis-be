@@ -7,5 +7,6 @@ public record BoundaryOrganization(UUID id,
                                    UUID userId,
                                    String title,
                                    Optional<String> code,
-                                   Optional<String> address) {
+                                   Optional<String> address,
+                                   double yearlyGoal) {
 }

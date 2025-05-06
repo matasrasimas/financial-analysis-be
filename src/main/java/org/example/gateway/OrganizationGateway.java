@@ -10,9 +10,9 @@ import java.util.UUID;
 
 public interface OrganizationGateway {
     List<Organization> retrieve();
+    List<Organization> retrieveByUserId(UUID userId);
     Optional<Organization> retrieveById(UUID id);
-    Optional<Organization> retrieveByUserId(UUID userId);
-    OrgUnit create(UUID userId, OrganizationCreate input);
+    Organization create(UUID userId, OrganizationCreate input);
     void update(Organization input);
     void delete(UUID id);
 }

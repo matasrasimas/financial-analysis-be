@@ -9,32 +9,33 @@ import org.example.model.boundary.BoundaryOrganization;
 import org.example.model.rest.RestOrganization;
 import org.example.serialization.json.JsonSerializer;
 
+import java.util.List;
 import java.util.UUID;
 
 import static org.example.common.RouteConstants.USER_ID;
 
-public class RetrieveUserOrganizationRoute extends AuthedRoute<BoundaryOrganization, RestOrganization> {
+public class RetrieveUserOrganizationsRoute extends AuthedRoute<List<BoundaryOrganization>, List<RestOrganization>> {
     private final OrganizationUseCaseFactory organizationUseCaseFactory;
     private final OrganizationB2RConverter organizationB2RConverter;
 
-    public RetrieveUserOrganizationRoute(AuthenticationUseCaseFactory authUCFactory,
-                                         JsonSerializer jsonSerializer,
-                                         JavalinExceptionHandler exceptionHandler,
-                                         OrganizationUseCaseFactory organizationUseCaseFactory,
-                                         OrganizationB2RConverter organizationB2RConverter) {
+    public RetrieveUserOrganizationsRoute(AuthenticationUseCaseFactory authUCFactory,
+                                          JsonSerializer jsonSerializer,
+                                          JavalinExceptionHandler exceptionHandler,
+                                          OrganizationUseCaseFactory organizationUseCaseFactory,
+                                          OrganizationB2RConverter organizationB2RConverter) {
         super(authUCFactory, jsonSerializer, null, exceptionHandler);
         this.organizationUseCaseFactory = organizationUseCaseFactory;
         this.organizationB2RConverter = organizationB2RConverter;
     }
 
     @Override
-    protected RestOrganization convert(BoundaryOrganization input) {
-        return organizationB2RConverter.process(input).orElseThrow();
+    protected List<RestOrganization> convert(List<BoundaryOrganization> input) {
+        return organizationB2RConverter.process(input);
     }
 
     @Override
-    protected Single<BoundaryOrganization> processAuthedRequest(RequestWrapper request) {
+    protected Single<List<BoundaryOrganization>> processAuthedRequest(RequestWrapper request) {
         UUID userId = UUID.fromString(request.getStringPathParam(USER_ID));
-        return organizationUseCaseFactory.createRetrieveUserOrganizationUseCase().execute(userId);
+        return organizationUseCaseFactory.createRetrieveUserOrganizationsUseCase().execute(userId);
     }
 }
