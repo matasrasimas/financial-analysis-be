@@ -1,4 +1,4 @@
-package org.example.usecase.implementation;
+package org.example.temp;
 
 import io.reactivex.rxjava3.core.Single;
 import org.example.converter.TransactionD2BConverter;
@@ -121,7 +121,6 @@ public class RetrieveStatisticsInteractor implements RetrieveStatisticsUseCase {
             Map.Entry<String, Double> mostUnprofitableMonth = monthlyProfit.entrySet().stream()
                     .min(Map.Entry.comparingByValue())  // Find the entry with the minimum value
                     .orElseThrow(() -> new NoSuchElementException("No transactions found"));
-
 
             // Step 2: Sort the months chronologically
             List<Map.Entry<String, Double>> sortedMonths = monthlyProfit.entrySet().stream()

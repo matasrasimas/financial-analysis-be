@@ -4,6 +4,7 @@ import org.example.converter.TransactionD2BConverter;
 import org.example.converter.TransactionUpsertB2DConverter;
 import org.example.factory.TransactionUseCaseFactory;
 import org.example.gateway.TransactionGateway;
+import org.example.temp.GenerateTransactionsFromFileInteractor;
 import org.example.usecase.*;
 import org.example.usecase.implementation.*;
 

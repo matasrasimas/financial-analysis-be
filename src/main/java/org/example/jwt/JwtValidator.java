@@ -1,4 +1,4 @@
-package org.example.usecase.implementation;
+package org.example.jwt;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.proc.BadJOSEException;

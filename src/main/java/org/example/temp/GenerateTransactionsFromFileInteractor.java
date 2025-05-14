@@ -1,4 +1,4 @@
-package org.example.usecase.implementation;
+package org.example.temp;
 
 import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;

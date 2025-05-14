@@ -61,18 +61,17 @@ public class ExportOrgUnitTransactionsInteractorTest {
         when(exportGateway.exportTransactions(any(), any(), anyDouble())).thenReturn(new ByteArrayOutputStream());
 
         interactor.execute(orgUnitId.toString(), from, to)
-                .subscribeOn(testScheduler)
-                .subscribe(testObserver);
+                        .subscribeOn(testScheduler)
+                                .subscribe(testObserver);
         testScheduler.advanceTimeBy(1, TimeUnit.SECONDS);
-        testObserver.assertComplete();
 
+        testObserver.assertComplete();
         testObserver.assertValue(output -> {
             assertThat(output).isNotNull();
             assertThat(output.getName()).contains("Transakciju ataskaita");
             assertThat(output.getContent()).isInstanceOf(ByteArrayOutputStream.class);
             return true;
         });
-
 
 
         verify(transactionGateway).retrieveByOrgUnitId(orgUnitId, from, to);
@@ -92,15 +91,53 @@ public class ExportOrgUnitTransactionsInteractorTest {
                 .subscribeOn(testScheduler)
                 .subscribe(testObserver);
         testScheduler.advanceTimeBy(1, TimeUnit.SECONDS);
-        testObserver.assertComplete();
 
+        testObserver.assertComplete();
         testObserver.assertValue(output -> {
             assertThat(output).isNotNull();
             assertThat(output.getName()).contains("Transakciju ataskaita");
             return true;
         });
 
+
+
         verify(transactionGateway).retrieveByOrgUnitId(orgUnitId, from, to);
         verify(exportGateway).exportTransactions(anyString(), eq(List.of()), eq(0.0));
+    }
+
+    @Test
+    void executeShouldFailIfExportGatewayThrows() {
+        UUID orgUnitId = UUID.randomUUID();
+        LocalDate from = LocalDate.of(2024, 1, 1);
+        LocalDate to = LocalDate.of(2024, 12, 31);
+
+        when(transactionGateway.retrieveByOrgUnitId(orgUnitId, from, to)).thenReturn(List.of());
+        when(exportGateway.exportTransactions(any(), any(), anyDouble()))
+                .thenThrow(new RuntimeException("Export failed"));
+
+        interactor.execute(orgUnitId.toString(), from, to)
+                .subscribeOn(testScheduler)
+                .subscribe(testObserver);
+
+        testScheduler.advanceTimeBy(1, TimeUnit.SECONDS);
+
+        testObserver.assertError(RuntimeException.class);
+    }
+
+    @Test
+    void executeShouldHandleNullTransactionListGracefully() {
+        UUID orgUnitId = UUID.randomUUID();
+        LocalDate from = LocalDate.of(2024, 1, 1);
+        LocalDate to = LocalDate.of(2024, 12, 31);
+
+        when(transactionGateway.retrieveByOrgUnitId(orgUnitId, from, to)).thenReturn(null);
+
+        interactor.execute(orgUnitId.toString(), from, to)
+                .subscribeOn(testScheduler)
+                .subscribe(testObserver);
+
+        testScheduler.advanceTimeBy(1, TimeUnit.SECONDS);
+
+        testObserver.assertError(NullPointerException.class); // Or custom exception if your logic guards this
     }
 }

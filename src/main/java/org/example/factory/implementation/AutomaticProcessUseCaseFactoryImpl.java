@@ -5,7 +5,7 @@ import org.example.factory.AutomaticProcessUseCaseFactory;
 import org.example.gateway.AutomaticTransactionGateway;
 import org.example.gateway.TransactionGateway;
 import org.example.usecase.ProcessAutomaticTransactionsUseCase;
-import org.example.usecase.implementation.ProcessAutomaticTransactionsInteractor;
+import org.example.temp.ProcessAutomaticTransactionsInteractor;
 
 public class AutomaticProcessUseCaseFactoryImpl implements AutomaticProcessUseCaseFactory {
     private final Scheduler scheduler;

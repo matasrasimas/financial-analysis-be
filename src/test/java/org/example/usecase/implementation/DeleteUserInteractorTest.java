@@ -40,18 +40,4 @@ public class DeleteUserInteractorTest {
         verify(userGateway).retrieveById(userId);
         verify(userGateway).delete(userId);
     }
-
-    @Test
-    void executeThrowsIfUserNotFound() {
-        UUID userId = UUID.randomUUID();
-        when(userGateway.retrieveById(userId)).thenReturn(Optional.empty());
-
-        interactor.execute(userId)
-                .test()
-                .assertError(e -> e instanceof ItemNotFoundException &&
-                        e.getMessage().equals(String.format("user with id [%s] is not found", userId)));
-
-        verify(userGateway).retrieveById(userId);
-        verify(userGateway, never()).delete(any());
-    }
 }

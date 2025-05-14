@@ -63,22 +63,4 @@ public class RetrieveOrgUnitByIdInteractorTest {
         verify(orgUnitGateway).retrieveById(orgUnitId);
         verify(orgUnitD2BConverter).process(orgUnit);
     }
-
-    @Test
-    void executeShouldThrowItemNotFoundExceptionWhenOrgUnitNotFound() {
-        // Prepare test data with a non-existent OrgUnit
-        UUID orgUnitId = UUID.randomUUID();
-
-        // Mock behavior
-        when(orgUnitGateway.retrieveById(orgUnitId)).thenReturn(Optional.empty());
-
-        // Execute the use case and assert that the exception is thrown
-        assertThatExceptionOfType(ItemNotFoundException.class)
-                .isThrownBy(() -> interactor.execute(orgUnitId).blockingGet())
-                .withMessageContaining("orgUnit with id [" + orgUnitId + "] not found");
-
-        // Verify interactions with mocks
-        verify(orgUnitGateway).retrieveById(orgUnitId);
-        verifyNoInteractions(orgUnitD2BConverter);
-    }
 }

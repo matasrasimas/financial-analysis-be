@@ -5,41 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0d6a2b2-f7b5-42f7-886a-5036e179407f" name="Changes" comment="remaining implementation">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/route/CreateOrganizationRouteTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/route/CreateUserRouteTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/CreateOrganizationInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/CreateUserInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteAutomaticTransactionInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteInvitationInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteOrgUnitInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteOrganizationInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteTransactionInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteUserInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/ExportOrgUnitTransactionsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveAutomaticTransactionsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveInvitationsByOrgIdInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrgUnitAutomaticTransactionsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrgUnitByIdInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrgUnitTransactionsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrgUnitsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrganizationOrgUnitsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrganizationTransactionsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrganizationsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveReceivedInvitationsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveSentInvitationsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveTransactionsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveUserOrganizationsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveUsersInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/UpdateOrganizationInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/UpdateUserInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/UpsertAutomaticTransactionInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/UpsertInvitationInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/UpsertOrgUnitInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/UpsertTransactionsInteractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/jwt/JwtProcessorBuilderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/jwt/JwtValidatorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/VerificationInteractorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/CreateOrganizationInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/CreateOrganizationInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/AutomaticProcessUseCaseFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/AutomaticProcessUseCaseFactoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/OrganizationUseCaseFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/OrganizationUseCaseFactoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/TransactionUseCaseFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/implementation/TransactionUseCaseFactoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/GenerateTransactionsFromFileInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/temp/GenerateTransactionsFromFileInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/JwtGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jwt/JwtGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/JwtProcessorBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jwt/JwtProcessorBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/JwtValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jwt/JwtValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/ProcessAutomaticTransactionsInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/temp/ProcessAutomaticTransactionsInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/usecase/implementation/RetrieveStatisticsInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/temp/RetrieveStatisticsInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteTransactionInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteTransactionInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteUserInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/DeleteUserInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/ExportOrgUnitTransactionsInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/ExportOrgUnitTransactionsInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrgUnitByIdInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/usecase/implementation/RetrieveOrgUnitByIdInteractorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,82 +102,175 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ACTIVE_CLOUD_PROJECT_ACCOUNT&quot;: &quot;matasra2002@gmail.com&quot;,
-    &quot;ACTIVE_CLOUD_PROJECT_ID&quot;: &quot;unique-axle-456610-d5&quot;,
-    &quot;ACTIVE_CLOUD_PROJECT_NAME&quot;: &quot;Financial analysis system&quot;,
-    &quot;ACTIVE_CLOUD_PROJECT_NUMBER&quot;: &quot;165991968278&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.AuthedRouteTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.AuthedRouteTest.testHandle.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build financial-analysis-be.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CreateOrganizationInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CreateOrganizationRouteTest.upsertViaUseCase.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CreateUserInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CreateUserRouteTest.upsertViaUseCase.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeleteAutomaticTransactionInteractorTest.deleteNonExistingTransactionThrowsItemNotFoundException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeleteAutomaticTransactionInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeleteInvitationInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeleteOrgUnitInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeleteOrganizationInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeleteTransactionInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeleteUserInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ExportOrgUnitTransactionsInteractorTest.executeReturnsExportedBoundaryFile.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ExportOrgUnitTransactionsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.JwtGeneratorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveAutomaticTransactionsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveInvitationsByOrgIdInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveOrgUnitAutomaticTransactionsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveOrgUnitByIdInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveOrgUnitTransactionsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveOrgUnitsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveOrganizationOrgUnitsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveOrganizationTransactionsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveOrganizationsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveReceivedInvitationsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveSentInvitationsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveTransactionsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveUserOrganizationsInteractorTest.executeShouldThrowItemNotFoundExceptionWhenNoOrganizationsFound.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveUserOrganizationsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RetrieveUsersInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'financial-analysis-be.test'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.Tests in 'org.example.usecase.implementation'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.UpdateOrganizationInteractorTest.executeShouldThrowExceptionIfConversionFails.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateOrganizationInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateUserInteractorTest.executeShouldThrowExceptionIfConversionFails.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateUserInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpsertAutomaticTransactionInteractorTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.UpsertInvitationInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpsertOrgUnitInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpsertTransactionsInteractorTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.financial-analysis-be [:org.example.JOOQCodeGenerator.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.financial-analysis-be [:org.example.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.financial-analysis-be [dependencies].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.lopas [:org.example.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.org.example.usecase.implementation in financial-analysis-be.main.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.zencoder-patch-add-chat-message-raw-content&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.zencoder-patch-generate-chat-message-id&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.zencoder-patch-migrate-custom-instruction&quot;: &quot;true&quot;,
-    &quot;com.google.cloudcode.ide_session_index&quot;: &quot;20250514_0002&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/matas/OneDrive/Desktop/financial-analysis-be&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;coverage&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ACTIVE_CLOUD_PROJECT_ACCOUNT": "matasra2002@gmail.com",
+    "ACTIVE_CLOUD_PROJECT_ID": "unique-axle-456610-d5",
+    "ACTIVE_CLOUD_PROJECT_NAME": "Financial analysis system",
+    "ACTIVE_CLOUD_PROJECT_NUMBER": "165991968278",
+    "Application.Main.executor": "Run",
+    "Gradle.AuthedRouteTest.executor": "Run",
+    "Gradle.AuthedRouteTest.testHandle.executor": "Run",
+    "Gradle.Build financial-analysis-be.executor": "Run",
+    "Gradle.CreateOrganizationInteractorTest.executor": "Run",
+    "Gradle.CreateOrganizationRouteTest.upsertViaUseCase.executor": "Run",
+    "Gradle.CreateUserInteractorTest.executor": "Run",
+    "Gradle.CreateUserRouteTest.upsertViaUseCase.executor": "Run",
+    "Gradle.DeleteAutomaticTransactionInteractorTest.deleteNonExistingTransactionThrowsItemNotFoundException.executor": "Run",
+    "Gradle.DeleteAutomaticTransactionInteractorTest.executor": "Run",
+    "Gradle.DeleteInvitationInteractorTest.executor": "Run",
+    "Gradle.DeleteOrgUnitInteractorTest.executor": "Run",
+    "Gradle.DeleteOrganizationInteractorTest.executor": "Run",
+    "Gradle.DeleteTransactionInteractorTest.executor": "Run",
+    "Gradle.DeleteUserInteractorTest.executor": "Run",
+    "Gradle.ExportOrgUnitTransactionsInteractorTest.executeReturnsExportedBoundaryFile.executor": "Run",
+    "Gradle.ExportOrgUnitTransactionsInteractorTest.executeShouldFailIfExportGatewayThrows.executor": "Run",
+    "Gradle.ExportOrgUnitTransactionsInteractorTest.executeShouldHandleNullTransactionListGracefully.executor": "Run",
+    "Gradle.ExportOrgUnitTransactionsInteractorTest.executor": "Run",
+    "Gradle.JwtGeneratorTest.executor": "Run",
+    "Gradle.JwtProcessorBuilderTest.executor": "Run",
+    "Gradle.JwtValidatorTest.executor": "Run",
+    "Gradle.RetrieveAutomaticTransactionsInteractorTest.executor": "Run",
+    "Gradle.RetrieveInvitationsByOrgIdInteractorTest.executor": "Run",
+    "Gradle.RetrieveOrgUnitAutomaticTransactionsInteractorTest.executor": "Run",
+    "Gradle.RetrieveOrgUnitByIdInteractorTest.executor": "Run",
+    "Gradle.RetrieveOrgUnitTransactionsInteractorTest.executor": "Run",
+    "Gradle.RetrieveOrgUnitsInteractorTest.executor": "Run",
+    "Gradle.RetrieveOrganizationOrgUnitsInteractorTest.executor": "Run",
+    "Gradle.RetrieveOrganizationTransactionsInteractorTest.executor": "Run",
+    "Gradle.RetrieveOrganizationsInteractorTest.executor": "Run",
+    "Gradle.RetrieveReceivedInvitationsInteractorTest.executor": "Run",
+    "Gradle.RetrieveSentInvitationsInteractorTest.executor": "Run",
+    "Gradle.RetrieveStatisticsInteractorTest.execute_shouldReturnCorrectStatistics_whenValidOrgId.executor": "Run",
+    "Gradle.RetrieveStatisticsInteractorTest.execute_shouldReturnEmptyStatistics_whenNoTransactions.executor": "Run",
+    "Gradle.RetrieveStatisticsInteractorTest.executor": "Run",
+    "Gradle.RetrieveTransactionsInteractorTest.executor": "Run",
+    "Gradle.RetrieveUserOrganizationsInteractorTest.executeShouldThrowItemNotFoundExceptionWhenNoOrganizationsFound.executor": "Run",
+    "Gradle.RetrieveUserOrganizationsInteractorTest.executor": "Run",
+    "Gradle.RetrieveUsersInteractorTest.executor": "Run",
+    "Gradle.Tests in 'financial-analysis-be.test'.executor": "Coverage",
+    "Gradle.Tests in 'org.example.usecase.implementation'.executor": "Coverage",
+    "Gradle.UpdateOrganizationInteractorTest.executeShouldThrowExceptionIfConversionFails.executor": "Run",
+    "Gradle.UpdateOrganizationInteractorTest.executor": "Run",
+    "Gradle.UpdateUserInteractorTest.executeShouldThrowExceptionIfConversionFails.executor": "Run",
+    "Gradle.UpdateUserInteractorTest.executor": "Run",
+    "Gradle.UpsertAutomaticTransactionInteractorTest.executor": "Coverage",
+    "Gradle.UpsertInvitationInteractorTest.executor": "Run",
+    "Gradle.UpsertOrgUnitInteractorTest.executor": "Run",
+    "Gradle.UpsertTransactionsInteractorTest.executor": "Coverage",
+    "Gradle.VerificationInteractorTest.executor": "Run",
+    "Gradle.financial-analysis-be [:org.example.JOOQCodeGenerator.main()].executor": "Run",
+    "Gradle.financial-analysis-be [:org.example.Main.main()].executor": "Run",
+    "Gradle.financial-analysis-be [dependencies].executor": "Run",
+    "Gradle.lopas [:org.example.Main.main()].executor": "Run",
+    "JUnit.org.example.usecase.implementation in financial-analysis-be.main.executor": "Coverage",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.zencoder-patch-add-chat-message-raw-content": "true",
+    "RunOnceActivity.zencoder-patch-generate-chat-message-id": "true",
+    "RunOnceActivity.zencoder-patch-migrate-custom-instruction": "true",
+    "com.google.cloudcode.ide_session_index": "20250514_0004",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/matas/OneDrive/Desktop/financial-analysis-be",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.statistic.project.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Gradle.Tests in 'org.example.usecase.implementation'">
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="financial-analysis-be.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExportOrgUnitTransactionsInteractorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.usecase.implementation.ExportOrgUnitTransactionsInteractorTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExportOrgUnitTransactionsInteractorTest.executeShouldFailIfExportGatewayThrows" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.usecase.implementation.ExportOrgUnitTransactionsInteractorTest.executeShouldFailIfExportGatewayThrows&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExportOrgUnitTransactionsInteractorTest.executeShouldHandleNullTransactionListGracefully" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.usecase.implementation.ExportOrgUnitTransactionsInteractorTest.executeShouldHandleNullTransactionListGracefully&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="Tests in 'financial-analysis-be.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -210,92 +292,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>true</RunAsTest>
       <method v="2" />
-    </configuration>
-    <configuration name="Tests in 'org.example.usecase.implementation'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.usecase.implementation.*&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UpsertAutomaticTransactionInteractorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.usecase.implementation.UpsertAutomaticTransactionInteractorTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UpsertTransactionsInteractorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.usecase.implementation.UpsertTransactionsInteractorTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="org.example.usecase.implementation in financial-analysis-be.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="financial-analysis-be.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.usecase.implementation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.usecase.implementation" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Write tests for class AuthenticateUserRoute" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration">
       <module name="financial-analysis-be.main" />
@@ -380,11 +376,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'org.example.usecase.implementation'" />
-        <item itemvalue="Gradle.UpsertTransactionsInteractorTest" />
-        <item itemvalue="Gradle.UpsertAutomaticTransactionInteractorTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Tests in 'financial-analysis-be.test'" />
-        <item itemvalue="JUnit.org.example.usecase.implementation in financial-analysis-be.main" />
+        <item itemvalue="Gradle.ExportOrgUnitTransactionsInteractorTest" />
+        <item itemvalue="Gradle.ExportOrgUnitTransactionsInteractorTest.executeShouldFailIfExportGatewayThrows" />
+        <item itemvalue="Gradle.ExportOrgUnitTransactionsInteractorTest.executeShouldHandleNullTransactionListGracefully" />
       </list>
     </recent_temporary>
   </component>
@@ -402,6 +398,7 @@
       <workItem from="1747082265112" duration="2367000" />
       <workItem from="1747084647118" duration="242000" />
       <workItem from="1747084902139" duration="306000" />
+      <workItem from="1747171867979" duration="4616000" />
     </task>
     <task id="LOCAL−00001" summary="init project">
       <option name="closed" value="true" />
@@ -424,7 +421,14 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1746558433091</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="remaining implementation">
+      <option name="closed" value="true" />
+      <created>1747172117115</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1747172117115</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,6 +572,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="ai.zencoder.plugin.chat.state">
     <option name="activeChatId" value="2056ca83-d19d-4d2f-bc8a-c95129dca294" />
@@ -1149,12 +1157,12 @@
     <option name="state" value="FULLY_INDEXED" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/financial_analysis_be$Tests_in__org_example_usecase_implementation_.ic" NAME="Tests in 'org.example.usecase.implementation' Coverage Results" MODIFIED="1747172130006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/financial_analysis_be$org_example_usecase_implementation_in_financial_analysis_be_main.ic" NAME="org.example.usecase.implementation in financial-analysis-be.main Coverage Results" MODIFIED="1747170851337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.usecase.implementation.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/financial_analysis_be$Tests_in__financial_analysis_be_test_.ic" NAME="Tests in 'financial-analysis-be.test' Coverage Results" MODIFIED="1747171562370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/financial_analysis_be$UpsertAutomaticTransactionInteractorTest.ic" NAME="UpsertAutomaticTransactionInteractorTest Coverage Results" MODIFIED="1747171691600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/financial_analysis_be$Tests_in__org_example_usecase_implementation_.ic" NAME="Tests in 'org.example.usecase.implementation' Coverage Results" MODIFIED="1747171768033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/financial_analysis_be$UpsertTransactionsInteractorTest.ic" NAME="UpsertTransactionsInteractorTest Coverage Results" MODIFIED="1747171714795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/financial_analysis_be$UpsertAutomaticTransactionInteractorTest.ic" NAME="UpsertAutomaticTransactionInteractorTest Coverage Results" MODIFIED="1747171691600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/financial_analysis_be$Tests_in__financial_analysis_be_test_.ic" NAME="Tests in 'financial-analysis-be.test' Coverage Results" MODIFIED="1747175257404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

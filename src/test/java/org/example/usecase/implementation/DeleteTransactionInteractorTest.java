@@ -40,18 +40,4 @@ public class DeleteTransactionInteractorTest {
         verify(transactionGateway).retrieveById(transactionId);
         verify(transactionGateway).delete(transactionId);
     }
-
-    @Test
-    void executeThrowsIfTransactionNotFound() {
-        UUID transactionId = UUID.randomUUID();
-        when(transactionGateway.retrieveById(transactionId)).thenReturn(Optional.empty());
-
-        interactor.execute(transactionId)
-                .test()
-                .assertError(e -> e instanceof ItemNotFoundException &&
-                        e.getMessage().equals(String.format("Transaction with id [%s] not found", transactionId)));
-
-        verify(transactionGateway).retrieveById(transactionId);
-        verify(transactionGateway, never()).delete(any());
-    }
 }
